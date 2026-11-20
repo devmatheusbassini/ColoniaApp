@@ -516,3 +516,28 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .profileStats div{border-radius:16px;background:#fffafc}
 .profileStats b{color:var(--ink)}
 .listCount{margin:2px 2px 10px}
+/* v1.8.4 — Vacinas */
+.vacSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.vacSummary div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 10px;display:grid;gap:2px;box-shadow:0 8px 20px rgba(74,45,38,.04)}
+.vacSummary b{font-size:22px;color:var(--ink)}
+.vacSummary span{font-size:11.5px;color:var(--muted);line-height:1.25}
+.vacSummary .warn{background:#fff8ec;border-color:#f3dfb8}.vacSummary .warn b{color:#b07a14}
+.vacSummary .bad{background:#fff1f3;border-color:#f5cdd4}.vacSummary .bad b{color:#c03a50}
+.vaccine{position:relative;align-items:flex-start!important;flex-wrap:wrap;padding:14px 14px 14px 17px!important;overflow:hidden}
+.vaccine:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green)}
+.vaccine.vac-warn:before{background:#d9a13b}.vaccine.vac-bad:before{background:var(--red)}
+.vaccine .vaccineIcon{width:44px;height:44px;border-radius:14px}
+.vaccine.vac-warn .vaccineIcon{background:#fdf4e4;color:#c28a24}.vaccine.vac-bad .vaccineIcon{background:#ffecef;color:#c03a50}
+.vaccine.vac-ok .vaccineIcon{background:#e8f7ef;color:#26734d}
+.vaccine>div:nth-child(2){min-width:0;gap:5px!important}
+.vaccine b{font-size:16px;color:var(--ink)}
+.vacPet{display:flex!important;align-items:center;gap:5px;font-weight:700;color:#6f5048!important}
+.vacPet svg{width:14px;height:14px;color:var(--pink)}
+.vacDates{font-size:12.5px!important}.vacDates strong{color:var(--ink)}
+.vacState,.vacAlert{font-style:normal;font-size:11px!important;font-weight:800;padding:5px 10px!important;border-radius:99px;align-self:flex-start;display:inline-flex;align-items:center;gap:5px}
+.vacState.ok{background:#e8f7ef!important;color:#26734d}.vacState.warn{background:#fdf4e4!important;color:#9a6a12}.vacState.bad{background:#ffecef!important;color:#b23b50}
+.vacAlert{background:#fff1f3!important;color:#b23b50}.vacAlert svg{width:13px;height:13px}
+.vacProof{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--pink-dark);text-decoration:none;margin-top:2px}
+.vacProof svg{width:15px;height:15px}
+.vaccine>button{width:100%;min-height:44px;border-radius:14px!important;background:linear-gradient(135deg,var(--pink),var(--pink-dark))!important;color:#fff!important;border:0!important;font-weight:800;margin-top:4px}
+.vaccine>div:nth-child(2){flex:1 1 0!important}.vaccine>button{flex:1 1 100%!important;font-size:14px}.vacState,.vacAlert{white-space:nowrap}
