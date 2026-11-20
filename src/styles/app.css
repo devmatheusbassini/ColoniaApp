@@ -586,3 +586,16 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .syncState{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 12px;color:#555}
 .syncState i{width:10px;height:10px;border-radius:50%;background:#1f9d5c;flex:none}
 .sync-enviando .syncState i{background:#d98a14}.sync-offline .syncState i{background:#8a8a8a}.sync-erro .syncState i{background:#d33b3b}.sync-erro .syncState{color:#b02a2a}
+/* v1.8.7 Cadastro de hóspede */
+.petForm .formTabs{position:sticky;top:-1px;z-index:3;background:#fff;padding:6px 0 10px;display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px}
+.petForm .formTabs button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:14px!important}
+.petForm .formTabs button svg{width:17px;height:17px}
+.petForm .formTabs button.active{background:linear-gradient(135deg,#e2528f,#c23b78)!important;color:#fff!important;border-color:transparent!important}
+.petForm .photoInput{background:#fff7fb;border:1.5px dashed #f0bfd5;border-radius:20px;padding:16px;margin-bottom:14px}
+.fSec{background:#fff;border:1px solid #f3e1ea;border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 4px 14px rgba(190,60,120,.05)}
+.fSec h3{display:flex;align-items:center;gap:8px;margin:0 0 12px!important;font-size:17px}
+.fSec h3 svg{width:20px;height:20px;color:#d6417f;background:#fdeef5;border-radius:10px;padding:5px;box-sizing:content-box}
+.fSec input,.fSec select,.fSec textarea{border-radius:12px!important;min-height:46px}
+.petForm .choiceGrid button.selected{background:#fdeef5!important;border-color:#d6417f!important;color:#b8336f!important;font-weight:700}
+.petForm .saveBar{position:sticky;bottom:0;width:100%;min-height:52px;border-radius:16px!important;background:linear-gradient(135deg,#e2528f,#c23b78)!important;color:#fff!important;box-shadow:0 8px 22px rgba(214,65,127,.3);margin-top:6px;z-index:3}
+.petForm .choiceGrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}.petForm .choiceGrid button{min-height:44px;font-size:13px;padding:8px 10px;border-radius:12px!important;text-align:center}
