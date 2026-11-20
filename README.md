@@ -104,3 +104,12 @@ Os dados são armazenados localmente no aparelho. Faça cópias de segurança an
 ## Intercorrências (v1.6.2)
 
 A ficha do hóspede possui uma aba de Intercorrências para registrar eventos com descrição, data, horário, indicação de tutor avisado, observação do contato e foto opcional. Cada evento aparece automaticamente na linha do tempo do hóspede.
+
+## Versão 1.6.4 — Correções críticas
+
+- Excluir um hóspede não apaga mais orçamentos, pagamentos e intercorrências: o histórico financeiro é preservado.
+- Aviso quando o armazenamento do aparelho estiver cheio, em vez de perder alterações silenciosamente.
+- Backup: em **Menu › Financeiro**, botões **Exportar backup** (arquivo .json) e **Importar backup** (com confirmação).
+- Valores aceitam o padrão brasileiro: `1.234,56`, `R$ 80,00`, `150`. Valores inválidos mostram aviso.
+- Recorte da foto: a prévia agora é idêntica à foto salva e os controles de posição não ficam invertidos.
+- PDF **Dados para Cadastro** em uma única página, com campos em duas colunas e opções em círculos.
