@@ -612,3 +612,22 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
+/* v1.9.0 resumo do orçamento */
+.sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
+.sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
+.sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
+.sumHead b{display:block;font-size:17px}.sumHead small{color:#8a6577}
+.sumDates{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px dashed #f0d6e2}
+.sumDates>div{display:grid;gap:2px}.sumDates>div:last-child{text-align:right;justify-items:end}
+.sumDates span{display:flex;align-items:center;gap:6px;font-size:12px;color:#888}
+.sumDates small{color:#888;font-size:12px}
+.sumDays{background:#fdeef5;border-radius:14px;padding:6px 12px;text-align:center;justify-items:center}
+.sumDays b{font-size:20px;color:#d6417f;line-height:1}.sumDays small{color:#b8336f!important}
+.sumLines{padding:6px 16px}
+.sumLine{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f7ecf1}
+.sumLine:last-child{border-bottom:0}.sumLine div{display:grid;gap:2px}.sumLine small{color:#888;font-size:12.5px}
+.sumLine strong{white-space:nowrap}
+.sumDisc{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin:0 16px 12px;padding:10px 12px;border-radius:12px;background:#e8f7ef;color:#1f7a49;font-size:13px}
+.sumDisc s{opacity:.7}
+.sumTotal{display:flex;justify-content:space-between;align-items:center;padding:16px;background:linear-gradient(135deg,#e2528f,#b8336f);color:#fff}
+.sumTotal span{font-weight:600}.sumTotal strong{font-size:26px;color:#fff}
