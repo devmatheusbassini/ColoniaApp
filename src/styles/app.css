@@ -342,3 +342,16 @@ textarea{font:inherit;width:100%;border:1px solid #e3d1ca;background:#fff;border
 .loginFoot{text-align:center;color:#a9847a;margin-top:8px}
 @media(prefers-reduced-motion:reduce){.loginLogo{animation:none}}
 .loginField input{font-weight:500}.loginField input::placeholder{color:#c2a59d;font-weight:400}
+
+/* v1.7.2 — login todo branco */
+.loginScreen{background:#fff;justify-content:center}
+.loginHero{padding:calc(env(safe-area-inset-top) + 40px) 16px 8px;overflow:visible}
+.loginHero:before,.loginHero:after{display:none}
+.loginLogo{width:auto;height:auto;background:none;box-shadow:none;border-radius:0;animation:none}
+.loginLogo img{width:150px;height:150px}
+.loginCard{flex:0 0 auto;margin-top:0;border-radius:0;padding-top:12px}
+.loginKicker{display:none}
+.loginCard h1{text-align:center;font-size:25px}
+.loginCard>p{text-align:center}
+.loginField{background:#fff}
+.loginLogo img{mix-blend-mode:multiply;filter:brightness(1.03) contrast(1.05)}
