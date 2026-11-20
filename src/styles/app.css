@@ -463,3 +463,34 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .agenda .calendarGrid .event{font-size:13px}
 .agenda .calendarGrid .event.none{font-size:13px}
 .agenda .datePickLabel{margin:0}
+/* v1.8.2 — Orçamentos */
+.budgetFilters{display:grid!important;grid-template-columns:repeat(3,1fr);background:#f8eeeb;border-radius:16px;padding:4px;gap:4px!important;margin-bottom:14px}
+.budgetFilters button{border:0!important;background:transparent!important;color:#815f57!important;border-radius:12px!important;padding:10px 6px!important;min-height:42px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700!important;box-shadow:none!important}
+.budgetFilters button small{font-size:11px;font-weight:800;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:#efdfda;color:#8a6a62;display:grid;place-items:center}
+.budgetFilters button.active{background:#fff!important;color:var(--pink-dark)!important;box-shadow:0 4px 12px rgba(74,45,38,.08)!important}
+.budgetFilters button.active small{background:var(--pink);color:#fff}
+.budget{position:relative;padding:16px 16px 14px 19px!important;border-radius:22px;overflow:hidden}
+.budget:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#d9c7c1}
+.budget.st-rascunho:before{background:#d9a13b}.budget.st-aprovado:before{background:#3b82c4}.budget.st-entrada-confirmada:before{background:var(--green)}.budget.st-finalizado:before{background:#8a6a62}.budget.st-cancelado:before{background:var(--red)}
+.budget.st-cancelado{opacity:.8}
+.budgetTop b{font-size:17px;color:var(--ink)}
+.budgetTop>div{gap:4px}
+.bDates{display:flex!important;align-items:center;gap:6px;font-size:13.5px!important;color:#6f5048!important;font-weight:600}
+.bDates svg{width:15px;height:15px;color:var(--pink)}
+.bValid{font-size:12px!important;color:#a68a82!important}
+.budget em{font-size:11px!important;padding:6px 10px!important;letter-spacing:.02em;white-space:nowrap}
+.budget em.rascunho{background:#fdf4e4!important;color:#9a6a12}
+.budget em.aprovado{background:#e8f1fb!important;color:#2a6aa6}
+.budget em.finalizado{background:#f3ebe8!important;color:#6f5048}
+.budget .total{font-size:26px;margin:12px 0 10px;display:flex;align-items:baseline;gap:8px;letter-spacing:-.01em}
+.budget .total small{font-weight:600}
+.paymentResume{display:grid!important;grid-template-columns:1fr 1fr;gap:6px 12px;background:#fbf7f6;border-radius:14px;padding:10px 12px;margin-bottom:12px;font-size:13px;color:var(--muted)}
+.paymentResume span:last-child{text-align:right}
+.paymentResume b{color:var(--ink)}
+.payBar{grid-column:1/-1;height:6px;border-radius:99px;background:#efe2de;overflow:hidden}
+.payBar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#4cc18a);border-radius:99px}
+.budget .actions{display:flex;flex-wrap:wrap;gap:8px;padding-top:12px;border-top:1px solid var(--line)}
+.budget .actions button{flex:1 1 auto;font-size:13.5px;min-height:44px;border-radius:14px}
+.budget .actions button.primaryAct{flex:1 1 100%;order:-1;background:linear-gradient(135deg,var(--pink),var(--pink-dark))!important;color:#fff!important;border:0!important;box-shadow:0 8px 18px rgba(216,93,145,.22)}
+.budget .actions button.danger{flex:0 0 auto;border-color:transparent!important;background:transparent!important}
+.bDates{white-space:nowrap}.budgetTop{align-items:flex-start}.budgetTop>div{min-width:0}
