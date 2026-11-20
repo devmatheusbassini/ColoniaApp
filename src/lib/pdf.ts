@@ -1,7 +1,7 @@
 import { jsPDF } from 'jspdf'
 import type { Budget, Pet, Vaccine } from '../types'
 import { dateBR, localDate, money } from '../domain/format'
-import { budgetValidUntil, guestName } from '../domain/budget'
+import { budgetPetIds, budgetPets, budgetValidUntil, guestName } from '../domain/budget'
 import { shareOrDownload } from './share'
 
 const BRAND={name:'Colônia de Férias da Tia Cí',subtitle:'Hotel para Cães e Outros Animais',phone:'(12) 98842-8170',responsible:'Cíntia Bravo',brown:[87,52,43] as [number,number,number],pink:[210,86,137] as [number,number,number],soft:[249,241,244] as [number,number,number]}
@@ -12,43 +12,47 @@ function section(doc:jsPDF,title:string,y:number){if(y>260){doc.addPage();y=18}d
 function row(doc:jsPDF,label:string,value:string,y:number,emphasis=false){if(y>268){doc.addPage();y=20}doc.setTextColor(...BRAND.brown);doc.setFont('helvetica','bold');doc.setFontSize(emphasis?11:9);doc.text(label,18,y);doc.setFont('helvetica',emphasis?'bold':'normal');doc.setTextColor(...(emphasis?BRAND.pink:BRAND.brown));doc.text(value||'Não informado',78,y,{maxWidth:112});return y+8}
 const deliver=(doc:jsPDF,filename:string,title:string)=>shareOrDownload(doc.output('blob'),filename,title,`Documento da ${BRAND.name}`)
 
-export async function budgetPdf(pet:Pet|undefined,b:Budget,total:number){
- const d=new jsPDF(),logo=await logoData(),name=guestName(b,pet?[pet]:[]),validUntil=budgetValidUntil(b)
- const W=210,M=16,CW=W-M*2,brown=BRAND.brown,pink=BRAND.pink,soft=BRAND.soft,muted:[number,number,number]=[150,120,112]
+export async function budgetPdf(pets:Pet[],b:Budget,total:number){
+ const d=new jsPDF(),logo=await logoData(),name=guestName(b,pets),owner=budgetPets(b,pets)[0],validUntil=budgetValidUntil(b)
+ const W=210,M=16,CW=W-M*2,ink:[number,number,number]=[68,56,52],muted:[number,number,number]=[128,114,110],rose:[number,number,number]=[168,52,100],blush:[number,number,number]=[252,238,244],line:[number,number,number]=[236,214,224]
  const code=`ORC-${(b.createdAt||new Date().toISOString()).slice(0,10).replace(/-/g,'')}-${b.id.slice(-4).toUpperCase()}`
- // Cabeçalho: faixa rosa com logo e número do orçamento
- d.setFillColor(...pink);d.rect(0,0,W,46,'F');d.setFillColor(255,255,255);d.circle(M+14,23,15,'F');d.addImage(logo,'JPEG',M+4,11,20,24)
- d.setTextColor(255,255,255);d.setFont('helvetica','bold');d.setFontSize(16);d.text(BRAND.name,M+34,20);d.setFont('helvetica','normal');d.setFontSize(9);d.text(BRAND.subtitle,M+34,26);d.text(`WhatsApp ${BRAND.phone}`,M+34,32)
- d.setFont('helvetica','bold');d.setFontSize(20);d.text('ORÇAMENTO',W-M,21,{align:'right'});d.setFont('helvetica','normal');d.setFontSize(8.5);d.text(code,W-M,28,{align:'right'});d.text(`Emitido em ${dateBR(localDate())}`,W-M,33,{align:'right'})
+ const plural=(n:number)=>`${n} diária${n===1?'':'s'}`
+ // Cabeçalho branco com o logo original
+ const lp=d.getImageProperties(logo),lh=32,lw=lh*lp.width/lp.height;d.addImage(logo,'JPEG',M,10,lw,lh)
+ d.setTextColor(...ink);d.setFont('helvetica','bold');d.setFontSize(15);d.text(BRAND.name,M+lw+6,21);d.setFont('helvetica','normal');d.setFontSize(9);d.setTextColor(...muted);d.text(BRAND.subtitle,M+lw+6,27);d.text(`WhatsApp ${BRAND.phone}`,M+lw+6,32.5)
+ d.setTextColor(...rose);d.setFont('helvetica','bold');d.setFontSize(19);d.text('ORÇAMENTO',W-M,21,{align:'right'});d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(8.5);d.text(code,W-M,27,{align:'right'});d.text(`Emitido em ${dateBR(localDate())}`,W-M,32.5,{align:'right'})
+ d.setDrawColor(...rose);d.setLineWidth(.8);d.line(M,48,W-M,48)
  // Cartões: cliente e estadia
- let y=56;const card=(x:number,w:number,title:string,lines:[string,string][])=>{d.setFillColor(...soft);d.roundedRect(x,y,w,40,3,3,'F');d.setTextColor(...pink);d.setFont('helvetica','bold');d.setFontSize(8);d.text(title,x+5,y+8);let ly=y+16;for(const [k,v] of lines){d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(7.5);d.text(k,x+5,ly);d.setTextColor(...brown);d.setFont('helvetica','bold');d.setFontSize(9);d.text(v||'A definir',x+30,ly,{maxWidth:w-34});ly+=7.5}}
- const half=(CW-6)/2
- card(M,half,'CLIENTE',[['Hóspede(s)',name],['Tutor',pet?.guardian||b.quickGuardianName||''],['WhatsApp',pet?.phone||b.quickGuardianPhone||'']])
- card(M+half+6,half,'ESTADIA',[['Entrada',`${dateBR(b.entryDate)}${b.entryTime?' às '+b.entryTime:''}`],['Saída',`${dateBR(b.exitDate)}${b.exitTime?' às '+b.exitTime:''}`],['Diárias',`${b.days} diária${b.days===1?'':'s'}`]])
+ let y=56;const half=(CW-6)/2,labelW=24
+ const fit=(v:string)=>d.setFont('helvetica','bold').setFontSize(9).splitTextToSize(v||'A definir',half-labelW-9) as string[]
+ const client:[string,string[]][]=[[budgetPetIds(b).length>1?'Hóspedes':'Hóspede',fit(name)],['Tutor',fit(owner?.guardian||b.quickGuardianName||'')],['WhatsApp',fit(owner?.phone||b.quickGuardianPhone||'')]]
+ const stay:[string,string[]][]=[['Entrada',fit(`${dateBR(b.entryDate)}${b.entryTime?' às '+b.entryTime:''}`)],['Saída',fit(`${dateBR(b.exitDate)}${b.exitTime?' às '+b.exitTime:''}`)],['Período',fit(plural(b.days))]]
+ const h=(rows:[string,string[]][])=>14+rows.reduce((s,r)=>s+r[1].length*4.6+3,0),cardH=Math.max(h(client),h(stay))
+ const card=(x:number,title:string,rows:[string,string[]][])=>{d.setFillColor(...blush);d.roundedRect(x,y,half,cardH,3,3,'F');d.setFillColor(...rose);d.rect(x,y+4,1.2,cardH-8,'F');d.setTextColor(...rose);d.setFont('helvetica','bold');d.setFontSize(8);d.text(title,x+6,y+8);let ly=y+15.5;for(const [k,v] of rows){d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(7.5);d.text(k,x+6,ly);d.setTextColor(...ink);d.setFont('helvetica','bold');d.setFontSize(9);d.text(v,x+6+labelW,ly);ly+=v.length*4.6+3}}
+ card(M,'CLIENTE',client);card(M+half+6,'ESTADIA',stay)
  // Tabela de itens
- y+=50;const cols=[M+4,M+104,M+128,W-M-4]
- d.setFillColor(...brown);d.roundedRect(M,y,CW,9,2,2,'F');d.setTextColor(255,255,255);d.setFont('helvetica','bold');d.setFontSize(8.5);d.text('DESCRIÇÃO',cols[0],y+6);d.text('QTD',cols[1],y+6,{align:'center'});d.text('VALOR UNIT.',cols[2]+18,y+6,{align:'right'});d.text('SUBTOTAL',cols[3],y+6,{align:'right'});y+=9
- const rows:[string,string,string,number][]=[]
- if((b.quoteItems||[]).length)for(const it of b.quoteItems||[])rows.push([`Hospedagem ${it.species} — ${b.days} diária${b.days===1?'':'s'} × ${money(it.normalRate)}`,String(it.quantity),money(it.normalRate*b.days),it.normalRate*b.days*it.quantity])
- else rows.push([`Hospedagem — ${b.days} diária${b.days===1?'':'s'}`,'1',money(b.dailyRate),b.dailyRate*b.days])
- if(b.timeExtra)rows.push(['Adicional de horário','1',money(b.timeExtraValue??0),b.timeExtraValue??0])
- for(const s of b.services||[])rows.push([s.name,String(s.quantity),money(s.value),s.value*s.quantity])
- rows.forEach(([desc,q,unit,sub],i)=>{if(i%2)d.setFillColor(...soft);else d.setFillColor(255,255,255);d.rect(M,y,CW,9,'F');d.setTextColor(...brown);d.setFont('helvetica','normal');d.setFontSize(9);d.text(desc,cols[0],y+6,{maxWidth:96});d.text(q,cols[1],y+6,{align:'center'});d.text(unit,cols[2]+18,y+6,{align:'right'});d.setFont('helvetica','bold');d.text(money(sub),cols[3],y+6,{align:'right'});y+=9})
- d.setDrawColor(...pink);d.setLineWidth(.5);d.line(M,y,W-M,y)
+ y+=cardH+10;const qx=M+112,ux=M+148,sx=W-M-4
+ d.setFillColor(...rose);d.rect(M,y,CW,9,'F');d.setTextColor(255,255,255);d.setFont('helvetica','bold');d.setFontSize(8.5);d.text('DESCRIÇÃO',M+4,y+6);d.text('QTD',qx,y+6,{align:'center'});d.text('VALOR UNIT.',ux,y+6,{align:'right'});d.text('SUBTOTAL',sx,y+6,{align:'right'});y+=9
+ const rows:[string,number,number][]=[]
+ if((b.quoteItems||[]).length)for(const it of b.quoteItems||[])rows.push([`Hospedagem · ${it.species} · ${plural(b.days)} de ${money(it.normalRate)}`,it.quantity,it.normalRate*b.days])
+ else rows.push([`Hospedagem · ${plural(b.days)} de ${money(b.dailyRate)}`,1,b.dailyRate*b.days])
+ if(b.timeExtra)rows.push(['Adicional de horário',1,b.timeExtraValue??0])
+ for(const s of b.services||[])rows.push([s.name,s.quantity,s.value])
+ rows.forEach(([desc,q,unit],i)=>{if(i%2){d.setFillColor(...blush);d.rect(M,y,CW,9,'F')}d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(9);d.text(desc,M+4,y+6,{maxWidth:qx-M-14});d.text(String(q),qx,y+6,{align:'center'});d.text(money(unit),ux,y+6,{align:'right'});d.setFont('helvetica','bold');d.text(money(unit*q),sx,y+6,{align:'right'});y+=9})
+ d.setDrawColor(...line);d.setLineWidth(.4);d.line(M,y,W-M,y)
  // Totais
- const normal=b.normalTotal??rows.reduce((s,r)=>s+r[3],0),discount=Math.max(0,normal-total);y+=8
- const tline=(k:string,v:string,color=brown)=>{d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(9);d.text(k,W-M-60,y);d.setTextColor(...color);d.setFont('helvetica','bold');d.text(v,W-M-4,y,{align:'right'});y+=7}
- if(discount>0){tline('Subtotal',money(normal));tline('Desconto especial',`- ${money(discount)}`,pink)}
- d.setFillColor(...pink);d.roundedRect(W-M-70,y-3,70,16,3,3,'F');d.setTextColor(255,255,255);d.setFont('helvetica','normal');d.setFontSize(9);d.text('TOTAL',W-M-66,y+7);d.setFont('helvetica','bold');d.setFontSize(15);d.text(money(total),W-M-4,y+7.5,{align:'right'})
- // Validade ao lado do total
- d.setDrawColor(...pink);d.setLineWidth(.4);d.roundedRect(M,y-3,80,16,3,3,'S');d.setTextColor(...pink);d.setFont('helvetica','bold');d.setFontSize(8);d.text('ORÇAMENTO VÁLIDO ATÉ',M+5,y+3);d.setTextColor(...brown);d.setFontSize(11);d.text(dateBR(validUntil),M+5,y+9.5)
- y+=24
- if(b.notes){d.setTextColor(...pink);d.setFont('helvetica','bold');d.setFontSize(9);d.text('OBSERVAÇÕES',M,y);y+=6;d.setTextColor(...brown);d.setFont('helvetica','normal');d.setFontSize(9);const t=d.splitTextToSize(b.notes,CW);d.text(t,M,y);y+=t.length*4.5+6}
+ const normal=b.normalTotal??rows.reduce((s,r)=>s+r[1]*r[2],0),discount=Math.max(0,normal-total);y+=8
+ const tline=(k:string,v:string,color=ink)=>{d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(9);d.text(k,W-M-66,y);d.setTextColor(...color);d.setFont('helvetica','bold');d.text(v,sx,y,{align:'right'});y+=7}
+ if(discount>0){tline('Subtotal',money(normal));tline('Desconto especial',`- ${money(discount)}`,rose)}
+ d.setFillColor(...rose);d.roundedRect(W-M-72,y-3,72,16,3,3,'F');d.setTextColor(255,255,255);d.setFont('helvetica','bold');d.setFontSize(9);d.text('TOTAL',W-M-67,y+7);d.setFontSize(15);d.text(money(total),sx,y+7.5,{align:'right'})
+ d.setFillColor(...blush);d.roundedRect(M,y-3,72,16,3,3,'F');d.setTextColor(...rose);d.setFont('helvetica','bold');d.setFontSize(7.5);d.text('VÁLIDO ATÉ',M+5,y+3);d.setTextColor(...ink);d.setFontSize(11);d.text(dateBR(validUntil),M+5,y+9.5)
+ y+=26
+ if(b.notes){if(y>240){d.addPage();y=24}d.setTextColor(...rose);d.setFont('helvetica','bold');d.setFontSize(8.5);d.text('OBSERVAÇÕES',M,y);y+=6;d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(9);const t=d.splitTextToSize(b.notes,CW) as string[];d.text(t,M,y);y+=t.length*4.5+8}
  // Mensagem final e assinatura
- if(y>235){d.addPage();y=24}
- d.setFillColor(...soft);d.roundedRect(M,y,CW,22,3,3,'F');d.setTextColor(...brown);d.setFont('helvetica','bold');d.setFontSize(10);d.text('Será um prazer cuidar do seu pet!',M+6,y+9);d.setFont('helvetica','normal');d.setFontSize(8.5);d.text(`Para confirmar a reserva, é só responder pelo WhatsApp ${BRAND.phone}.`,M+6,y+16)
- y+=38;d.setDrawColor(...muted);d.setLineWidth(.3);d.line(W-M-70,y,W-M,y);d.setTextColor(...brown);d.setFont('helvetica','bold');d.setFontSize(9);d.text(BRAND.responsible,W-M-35,y+5,{align:'center'});d.setFont('helvetica','normal');d.setFontSize(7.5);d.text('Técnica Veterinária Responsável',W-M-35,y+10,{align:'center'})
- addFooter(d);await deliver(d,`orcamento-${name.replace(/\s+/g,'-')}-${b.entryDate}.pdf`,'Orçamento de hospedagem')
+ if(y>222){d.addPage();y=24}
+ d.setDrawColor(...line);d.setLineWidth(.4);d.roundedRect(M,y,CW,22,3,3,'S');d.setTextColor(...rose);d.setFont('helvetica','bold');d.setFontSize(10);d.text('Será um prazer cuidar do seu pet!',M+6,y+9);d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(8.5);d.text(`Para confirmar a reserva, é só responder pelo WhatsApp ${BRAND.phone}.`,M+6,y+16)
+ y+=40;d.setDrawColor(...muted);d.setLineWidth(.3);d.line(W-M-70,y,W-M,y);d.setTextColor(...ink);d.setFont('helvetica','bold');d.setFontSize(9);d.text(BRAND.responsible,W-M-35,y+5,{align:'center'});d.setTextColor(...muted);d.setFont('helvetica','normal');d.setFontSize(7.5);d.text('Técnica Veterinária Responsável',W-M-35,y+10,{align:'center'})
+ addFooter(d);await deliver(d,`orcamento-${name.replace(/[^\p{L}\d]+/gu,'-')}-${b.entryDate}.pdf`,'Orçamento de hospedagem')
 }
 
 export async function vaccinePdf(pet:Pet,v:Vaccine){const d=new jsPDF(),l=await logoData(),id=`${pet.name} · Vacina ${v.name}`;addHeader(d,'AVISO DE VACINAÇÃO',id,l);let y=section(d,'AVISO AO RESPONSÁVEL',57);d.setFont('helvetica','normal');d.setTextColor(...BRAND.brown);d.setFontSize(11);d.text(d.splitTextToSize(`Olá, Aumigo! A vacina ${v.name} do seu pet ${pet.name} está próxima do vencimento em ${dateBR(v.expiresAt)}. Por favor, preciso do seu cuidado para mantermos a hospedagem segura para todos.`,170),18,y);y+=40;y=section(d,'INFORMAÇÕES',y);y=row(d,'Hóspede',pet.name,y);y=row(d,'Responsável',pet.guardian,y);y=row(d,'Telefone',pet.phone,y);y=row(d,'Vacina',v.name,y);y=row(d,'Aplicação',dateBR(v.appliedAt),y);y=row(d,'Validade',dateBR(v.expiresAt),y);addFooter(d);await deliver(d,`aviso-vacina-${pet.name}.pdf`,'Aviso de vacinação')}

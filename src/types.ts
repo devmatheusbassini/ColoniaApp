@@ -20,7 +20,7 @@ export type Payment = { id:string; value:number; method:string; date:string; not
 export type QuoteItem = { species:PetSpecies; quantity:number; normalRate:number; discountRate?:number }
 export type ServiceItem = { name:string; value:number; quantity:number }
 export type Budget = {
- id:string; petId?:string; quickGuardianName?:string; quickGuardianPhone?:string; quickLabel?:string; quoteItems?:QuoteItem[]; validUntil?:string;
+ id:string; petId?:string; petIds?:string[]; quickGuardianName?:string; quickGuardianPhone?:string; quickLabel?:string; quoteItems?:QuoteItem[]; validUntil?:string;
  entryDate:string; exitDate:string; entryTime?:string; exitTime?:string; dailyRate:number; days:number; manualDays?:boolean;
  timeExtra:boolean; timeExtraValue?:number; seasonType:'Nenhum'|'Feriado'|'Alta temporada'|'Data comemorativa';
  seasonMode:'R$'|'%'; seasonValue:number; discount:number; discountDailyRate?:number; showComparison?:boolean;

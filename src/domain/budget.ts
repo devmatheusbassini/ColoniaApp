@@ -43,4 +43,7 @@ export const paymentStatus = (b: Budget) => { const paid = amountPaid(b); return
 
 export const isBooked = (b: Budget) => b.status !== 'Cancelado' && b.status !== 'Rascunho'
 
-export const guestName = (b: Budget, pets: Pet[]) => pets.find(p => p.id === b.petId)?.name || b.quickLabel || (b.petId ? 'Hóspede removido' : 'Orçamento rápido')
+export const budgetPetIds = (b: Budget) => [b.petId, ...(b.petIds || [])].filter(Boolean) as string[]
+export const joinNames = (n: string[]) => n.length > 1 ? `${n.slice(0, -1).join(', ')} e ${n[n.length - 1]}` : n[0] || ''
+export const budgetPets = (b: Budget, pets: Pet[]) => budgetPetIds(b).map(id => pets.find(p => p.id === id)).filter(Boolean) as Pet[]
+export const guestName = (b: Budget, pets: Pet[]) => joinNames(budgetPets(b, pets).map(p => p.name)) || b.quickLabel || (b.petId ? 'Hóspede removido' : 'Orçamento rápido')
