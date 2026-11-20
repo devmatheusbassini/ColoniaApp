@@ -599,3 +599,16 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .petForm .choiceGrid button.selected{background:#fdeef5!important;border-color:#d6417f!important;color:#b8336f!important;font-weight:700}
 .petForm .saveBar{position:sticky;bottom:0;width:100%;min-height:52px;border-radius:16px!important;background:linear-gradient(135deg,#e2528f,#c23b78)!important;color:#fff!important;box-shadow:0 8px 22px rgba(214,65,127,.3);margin-top:6px;z-index:3}
 .petForm .choiceGrid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}.petForm .choiceGrid button{min-height:44px;font-size:13px;padding:8px 10px;border-radius:12px!important;text-align:center}
+/* v1.8.8 interruptor de desconto */
+.discSwitch{display:grid!important;grid-template-columns:40px 1fr 52px;align-items:center;gap:12px;background:#fff!important;border:1.5px solid #f3e1ea!important;border-radius:18px!important;padding:14px!important;cursor:pointer;transition:border-color .2s,background .2s}
+.discSwitch.on{border-color:#e2528f!important;background:#fff7fb!important}
+.discSwitch>i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#f4f4f5;color:#999;transition:.2s}
+.discSwitch.on>i{background:#fdeef5;color:#d6417f}
+.discSwitch>i svg{width:20px;height:20px}
+.discSwitch span{display:grid;gap:2px}.discSwitch small{font-size:12.5px;color:#777;line-height:1.35}
+.discSwitch input{position:absolute;opacity:0;width:1px;height:1px}
+.discSwitch em{position:relative;width:52px;height:30px;border-radius:30px;background:#d9d9de;transition:background .2s}
+.discSwitch em::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.2);transition:transform .2s}
+.discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
+.discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
