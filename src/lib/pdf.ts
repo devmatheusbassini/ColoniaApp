@@ -37,7 +37,7 @@ export async function budgetPdf(pets:Pet[],b:Budget,total:number){
  if((b.quoteItems||[]).length)for(const it of b.quoteItems||[])rows.push([`Hospedagem · ${it.species} · ${plural(b.days)} de ${money(it.normalRate)}`,it.quantity,it.normalRate*b.days])
  else rows.push([`Hospedagem · ${plural(b.days)} de ${money(b.dailyRate)}`,1,b.dailyRate*b.days])
  if(b.timeExtra)rows.push(['Adicional de horário',1,b.timeExtraValue??0])
- for(const s of b.services||[])rows.push([s.name,s.quantity,s.value])
+ for(const s of b.services||[])rows.push([s.pet?`${s.name} — ${s.pet}`:s.name,s.quantity,s.value])
  rows.forEach(([desc,q,unit],i)=>{if(i%2){d.setFillColor(...blush);d.rect(M,y,CW,9,'F')}d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(9);d.text(desc,M+4,y+6,{maxWidth:qx-M-14});d.text(String(q),qx,y+6,{align:'center'});d.text(money(unit),ux,y+6,{align:'right'});d.setFont('helvetica','bold');d.text(money(unit*q),sx,y+6,{align:'right'});y+=9})
  d.setDrawColor(...line);d.setLineWidth(.4);d.line(M,y,W-M,y)
  // Totais

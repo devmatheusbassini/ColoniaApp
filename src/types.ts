@@ -18,7 +18,7 @@ export type Incident = { id:string; petId:string; description:string; occurredAt
 export type BudgetStatus = 'Rascunho'|'Aprovado'|'Entrada confirmada'|'Finalizado'|'Cancelado'
 export type Payment = { id:string; value:number; method:string; date:string; notes?:string }
 export type QuoteItem = { species:PetSpecies; quantity:number; normalRate:number; discountRate?:number }
-export type ServiceItem = { name:string; value:number; quantity:number }
+export type ServiceItem = { name:string; value:number; quantity:number; pet?:string }
 export type Budget = {
  id:string; petId?:string; petIds?:string[]; quickGuardianName?:string; quickGuardianPhone?:string; quickLabel?:string; quoteItems?:QuoteItem[]; validUntil?:string;
  entryDate:string; exitDate:string; entryTime?:string; exitTime?:string; dailyRate:number; days:number; manualDays?:boolean;
