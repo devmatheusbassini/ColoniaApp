@@ -564,3 +564,25 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .wizard .primary{min-height:52px;width:100%}
 .wizard .primary:disabled{opacity:.45;box-shadow:none}
 .wizard .actions{position:sticky;bottom:-20px;background:#fff;padding:12px 0 4px;margin-top:6px;z-index:2;flex-wrap:nowrap}.wizard .actions button{min-height:50px}.wizard .actions .primary{flex:2;background:linear-gradient(135deg,var(--pink),var(--pink-dark))!important;color:#fff!important;border:0!important;box-shadow:0 8px 18px rgba(216,93,145,.25)}.wizSteps{background:#fff}
+/* v1.8.6 Menu/Financeiro */
+.menuOption{background:#fff!important;border:1px solid #f3e1ea!important;border-radius:18px!important;box-shadow:0 4px 14px rgba(190,60,120,.06)!important;padding:14px!important;margin-bottom:10px!important;min-height:72px}
+.menuOption>svg:first-child{background:#fdeef5;color:#d6417f;border-radius:14px;padding:12px;width:46px!important;height:46px!important}
+.financeFilters{display:grid!important;grid-template-columns:1.4fr 1fr;gap:10px}
+.financeFilters select{border-radius:14px!important;min-height:46px}
+.financeHero{background:linear-gradient(135deg,#e2528f,#b8336f)!important;color:#fff!important;border-radius:22px!important;padding:20px!important;box-shadow:0 10px 26px rgba(214,65,127,.28)!important}
+.financeHero span,.financeHero small{color:rgba(255,255,255,.88)!important}
+.financeHero strong{font-size:34px!important;color:#fff!important}
+.financeStats article{background:#fff!important;border:1px solid #f3e1ea!important;border-radius:18px!important;padding:14px!important;display:grid;gap:2px}
+.financeStats article i,.paymentRow>i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#e8f7ef;color:#1f9d5c;margin-bottom:6px}
+.financeStats article.pend i{background:#fff3e2;color:#d98a14}
+.financeStats article i svg,.paymentRow>i svg{width:18px;height:18px}
+.financeStats b{font-size:19px}
+.paymentRow{display:grid!important;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:#fff!important;border:1px solid #f3e1ea!important;border-radius:16px!important;padding:12px 14px!important}
+.paymentRow>i{margin:0}
+.paymentRow strong{color:#1f9d5c}
+.cloudCard,.backupCard{background:#fff;border:1px solid #f3e1ea;border-radius:20px;padding:16px;margin-top:16px;box-shadow:0 4px 14px rgba(190,60,120,.05)}
+.cloudCard h3,.backupCard h3{display:flex;align-items:center;gap:8px;margin:0 0 6px}
+.cloudCard h3 svg,.backupCard h3 svg{width:20px;height:20px;color:#d6417f}
+.syncState{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 12px;color:#555}
+.syncState i{width:10px;height:10px;border-radius:50%;background:#1f9d5c;flex:none}
+.sync-enviando .syncState i{background:#d98a14}.sync-offline .syncState i{background:#8a8a8a}.sync-erro .syncState i{background:#d33b3b}.sync-erro .syncState{color:#b02a2a}
