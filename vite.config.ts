@@ -7,13 +7,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.jpeg', 'icons/icon-192.png', 'icons/icon-512.png'],
+      includeAssets: ['logo.jpeg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'],
       manifest: {
-        name: 'Colônia de Férias da Tia Cí',
-        short_name: 'Tia Cí',
+        name: 'Colônia Tia Cí',
+        short_name: 'Colônia Tia Cí',
         description: 'Gestão de hospedagem, clientes, agenda, vacinas e termos para pets.',
         theme_color: '#d9578f',
-        background_color: '#fffaf7',
+        background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
         start_url: '/',
