@@ -319,3 +319,8 @@ textarea{font:inherit;width:100%;border:1px solid #e3d1ca;background:#fff;border
 
 /* v1.6.4 — prévia do recorte desenhada em canvas */
 .cropPreview canvas{width:100%;height:100%;display:block}
+/* v1.7.0 — login */
+.loginScreen{justify-content:center;padding:24px 16px}
+.loginForm{width:100%;max-width:340px;display:grid;gap:12px;margin-top:18px;text-align:left}
+.loginForm input{width:100%}
+.loginError{color:#c0392b;font-size:.9rem;margin:0}
