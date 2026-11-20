@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.10.1 resumo do orçamento */
+/* v1.10.2 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -631,3 +631,18 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .sumDisc s{opacity:.7}
 .sumTotal{display:flex;justify-content:space-between;align-items:center;padding:16px;background:linear-gradient(135deg,#e2528f,#b8336f);color:#fff}
 .sumTotal span{font-weight:600}.sumTotal strong{font-size:26px;color:#fff}
+
+/* Recorte da foto do hóspede */
+.cropStage{position:relative;width:min(100%,320px);aspect-ratio:1;margin:4px auto 0;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #fff,0 0 0 6px #f3c9da,0 12px 30px rgba(196,72,124,.18);touch-action:none;cursor:grab;background:#fff}
+.cropStage:active{cursor:grabbing}
+.cropStage canvas{width:100%;height:100%;display:block}
+.cropStage::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:50%;background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)) 33.3% 0/1px 100% no-repeat,linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)) 66.6% 0/1px 100% no-repeat,linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)) 0 33.3%/100% 1px no-repeat,linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)) 0 66.6%/100% 1px no-repeat}
+.cropHint{text-align:center;font-size:13px;color:#8a6f68;margin:14px 0 6px}
+.cropZoom{display:flex;align-items:center;gap:12px;margin:8px 0}
+.cropZoom button{width:44px;height:44px;flex:none;border-radius:14px;border:0;background:#fbe6ef;color:#b8457a;display:grid;place-items:center;padding:0}
+.cropZoom button svg{width:20px;height:20px}
+.cropZoom input[type=range]{flex:1;accent-color:#c94f86;height:28px;margin:0}
+.cropTools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 14px}
+.cropTools button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:14px;border:1px solid #f0d9e2;background:#fff;color:#5a3b33;font-weight:700}
+.cropTools button svg{width:18px;height:18px;color:#c94f86}
+.cropSave{width:100%!important;justify-content:center}
