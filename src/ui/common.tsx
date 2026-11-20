@@ -1,8 +1,13 @@
+import { useEffect, useState } from 'react'
 
 import {  PawPrint, Plus, X } from 'lucide-react'
 import type {  Pet } from '../types'
 
-export const Splash=({text='Preparando o cantinho dos Aumigos…'}:{text?:string})=><div className="splash" role="status" aria-live="polite"><div className="splashGlow" aria-hidden="true"><i/><i/><i/></div><div className="splashCore"><div className="splashRing" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f7a8c8"/><stop offset="1" stopColor="#be3f75"/></linearGradient></defs><circle cx="100" cy="100" r="92" className="track"/><circle cx="100" cy="100" r="92" className="arc"/><circle cx="100" cy="100" r="80" className="dash"/></svg></div><div className="splashLogo"><img src="/logo.jpeg" alt=""/></div></div><h1>Colônia de Férias da Tia Cí</h1><p>{text}</p><div className="splashBar" aria-hidden="true"><span/></div><div className="splashDots" aria-hidden="true"><b/><b/><b/></div></div>
+export function Splash({text='Preparando o cantinho dos Aumigos…'}:{text?:string}){
+ const [pct,setPct]=useState(0)
+ useEffect(()=>{const t=setInterval(()=>setPct(p=>p<90?p+6:p<99?p+1:99),60);return()=>clearInterval(t)},[])
+ return <div className="splash" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}><div className="splashLogo"><img src="/logo.jpeg" alt=""/></div><h1>Colônia de Férias da Tia Cí</h1><p>{text}</p><div className="splashProgress"><div className="splashBar"><span style={{width:pct+'%'}}/></div><b>{pct}%</b></div></div>
+}
 export function YesNoField({label,value,set}:{label:string,value:'Sim'|'Não'|'',set:(v:'Sim'|'Não')=>void}){return <div className="yesNoField"><span>{label}</span><div><button type="button" className={value==='Sim'?'active':''} onClick={()=>set('Sim')}><i/>Sim</button><button type="button" className={value==='Não'?'active no':''} onClick={()=>set('Não')}><i/>Não</button></div></div>}
 export function Info({label,value}:{label:string,value?:string}){return <div className="infoItem"><span>{label}</span><b>{value||'Não informado'}</b></div>}
 export function Avatar({pet}:{pet?:Pet}){return <div className="avatar">{pet?.photo?<img src={pet.photo}/>:<PawPrint/>}</div>}
