@@ -427,3 +427,39 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .quick.dashboardQuick b{font-size:15px!important}
 .quick.dashboardQuick .chev,.quick.dashboardQuick i svg{background:none!important;box-shadow:none!important;border-radius:0!important}
 .topbar .brandMark{background:#fff!important;box-shadow:none!important;border:0!important}
+/* v1.8.1 — Agenda */
+.agendaCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:0 10px 28px rgba(74,45,38,.06);display:grid;gap:10px}
+.agendaCard .agendaNavigator{border:0;box-shadow:none;padding:0;margin:0}
+.agendaNavigator span{display:inline-flex;align-items:center;justify-content:center;gap:5px;text-transform:none!important}
+.agendaNavigator b{text-transform:none!important}
+.todayChip{justify-self:center;border:1px solid #f0d4df;background:var(--pink-soft);color:var(--pink-dark);font-weight:800;font-size:13px;border-radius:99px;padding:8px 14px;min-height:36px}
+.agenda .weekNames{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:0}
+.agenda .weekNames span{padding:2px 0;font-size:12px;color:#b1928a}
+.monthGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.mDay{aspect-ratio:1/1;min-height:44px;border:0;background:transparent;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;color:var(--ink);transition:background .15s}
+.mDay b{font-size:15px;font-weight:700;width:30px;height:30px;display:grid;place-items:center;border-radius:50%}
+.mDay:active{background:#fdf2f6}
+.mDay.today b{color:var(--pink-dark);box-shadow:inset 0 0 0 1.5px var(--pink)}
+.mDay.sel{background:var(--pink-soft)}
+.mDay.sel b{background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;box-shadow:0 6px 14px rgba(216,93,145,.3)}
+.mDots{display:flex;gap:3px;height:6px}.mDots .dot{width:6px;height:6px}
+.dayPanel{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 10px 26px rgba(74,45,38,.05)}
+.dayPanelHead{display:flex;flex-direction:column;gap:3px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.dayPanelHead b{font-size:16px}.dayPanelHead span{font-size:13px;color:var(--muted)}
+.dayPanel h4{display:flex;align-items:center;gap:8px;margin:14px 0 4px;font-size:13px;color:#7b5a52;text-transform:uppercase;letter-spacing:.06em}
+.dayEmpty{display:flex;align-items:center;gap:10px;padding:16px 4px 4px;color:var(--muted);font-size:14px}
+.dayEmpty svg{width:22px;color:var(--pink);flex:0 0 auto;opacity:.75}
+.event.none{color:#c0a39b;font-size:11px}
+.agenda .calendarGrid{margin-top:4px}
+.agenda .legend{display:none}
+.agenda .calendarGrid.semana,.agenda .calendarGrid.dia{display:grid;grid-template-columns:1fr!important;gap:6px}
+.agenda .calendarGrid .calendarDay{min-height:58px!important;display:flex;align-items:center;gap:12px;text-align:left;padding:8px 12px!important;border-radius:16px}
+.agenda .calendarGrid .calendarDay .wDate{display:flex;flex-direction:column;align-items:center;width:40px;flex:0 0 auto}
+.agenda .calendarGrid .calendarDay .wDate small{font-size:11px;color:#a5847c;font-weight:700;text-transform:uppercase}
+.agenda .calendarGrid .calendarDay .wDate b{width:auto;height:auto;font-size:18px;background:none!important;color:var(--ink)}
+.agenda .calendarGrid .calendarDay.today{background:var(--pink-soft)}
+.agenda .calendarGrid .calendarDay.today .wDate b,.agenda .calendarGrid .calendarDay.today .wDate small{color:var(--pink-dark)}
+.agenda .calendarGrid .calendarDay .events{margin:0;flex:1;border-left:1px solid var(--line);padding-left:12px}
+.agenda .calendarGrid .event{font-size:13px}
+.agenda .calendarGrid .event.none{font-size:13px}
+.agenda .datePickLabel{margin:0}
