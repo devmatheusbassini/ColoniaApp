@@ -7,12 +7,11 @@ export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.m
  auth: { persistSession: true, autoRefreshToken: true, storageKey: 'tia-ci-auth' }
 })
 
-// Metadados da sincronização guardados no aparelho.
 // dirty=true: há alterações locais que ainda não foram enviadas à nuvem.
 type SyncMeta = { dirty: boolean; localUpdatedAt: string; remoteUpdatedAt?: string }
 const META_KEY = 'tia-ci-sync-v1'
 export function readMeta(): SyncMeta { try { return JSON.parse(localStorage.getItem(META_KEY) || 'null') || { dirty: false, localUpdatedAt: '' } } catch { return { dirty: false, localUpdatedAt: '' } } }
-export function writeMeta(m: SyncMeta) { try { localStorage.setItem(META_KEY, JSON.stringify(m)) } catch { /* sem espaço: ignora */ } }
+export function writeMeta(m: SyncMeta) { try { localStorage.setItem(META_KEY, JSON.stringify(m)) } catch {} }
 export function markDirty() { writeMeta({ ...readMeta(), dirty: true, localUpdatedAt: new Date().toISOString() }) }
 
 export async function currentSession(): Promise<Session | null> { const { data } = await supabase.auth.getSession(); return data.session }
@@ -34,10 +33,6 @@ export async function pushRemote(userId: string, appData: AppData): Promise<stri
 
 const isEmpty = (d: AppData) => !d.pets.length && !d.budgets.length && !d.vaccines.length && !d.incidents.length
 
-// Decide qual versão vale ao abrir o app:
-// - nuvem vazia → envia os dados do aparelho (migração inicial);
-// - alterações locais não enviadas e mais novas que a nuvem → envia o aparelho;
-// - caso contrário → usa a nuvem.
 export async function reconcile(userId: string, local: AppData): Promise<AppData> {
  const remote = await pullRemote(userId)
  const meta = readMeta()

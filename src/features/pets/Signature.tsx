@@ -1,0 +1,9 @@
+import { useEffect, useRef } from 'react'
+import {  Check, Download } from 'lucide-react'
+import type {  Pet } from '../../types'
+
+import {  termPdf } from '../../lib/pdf'
+
+import {  Modal } from '../../ui/common'
+
+export function Signature({pet,close,save}:{pet:Pet,close:()=>void,save:(s:string)=>void}){const ref=useRef<HTMLCanvasElement>(null),drawing=useRef(false);useEffect(()=>{const c=ref.current!;c.width=c.clientWidth*devicePixelRatio;c.height=220*devicePixelRatio;const x=c.getContext('2d')!;x.scale(devicePixelRatio,devicePixelRatio);x.lineWidth=2;x.lineCap='round'},[]);const pos=(e:any)=>{const r=ref.current!.getBoundingClientRect(),t=e.touches?.[0]||e;return[t.clientX-r.left,t.clientY-r.top]};const down=(e:any)=>{drawing.current=true;const[x,y]=pos(e);const c=ref.current!.getContext('2d')!;c.beginPath();c.moveTo(x,y)};const move=(e:any)=>{if(!drawing.current)return;e.preventDefault();const[x,y]=pos(e);const c=ref.current!.getContext('2d')!;c.lineTo(x,y);c.stroke()};return <Modal title="Termo de hospedagem" close={close}><div className="termText"><b>Termo de hospedagem</b><p>Declaro verdadeiras as informações do hóspede, tutor, vacinação, vermifugação, prevenção contra pulgas e carrapatos, comportamento, alimentação, pertences e medicações. Autorizo os cuidados necessários e, em emergência, atendimento veterinário com despesas sob responsabilidade do tutor.</p></div><canvas className="signature" ref={ref} onMouseDown={down} onMouseMove={move} onMouseUp={()=>drawing.current=false} onTouchStart={down} onTouchMove={move} onTouchEnd={()=>drawing.current=false}/><div className="actions"><button onClick={()=>ref.current!.getContext('2d')!.clearRect(0,0,ref.current!.width,ref.current!.height)}>Limpar</button><button className="primary" onClick={()=>save(ref.current!.toDataURL())}><Check/>Salvar e compartilhar PDF</button><button onClick={()=>termPdf(pet)}><Download/>Ver termo</button></div></Modal>}
