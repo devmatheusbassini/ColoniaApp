@@ -355,3 +355,75 @@ textarea{font:inherit;width:100%;border:1px solid #e3d1ca;background:#fff;border
 .loginCard>p{text-align:center}
 .loginField{background:#fff}
 .loginLogo img{mix-blend-mode:multiply;filter:brightness(1.03) contrast(1.05)}
+
+/* v1.8.0 — polimento geral de UI/UX */
+:root{--ink:#3d2520;--muted:#86655d;--focus:0 0 0 3px rgba(216,93,145,.35);--ease:cubic-bezier(.2,.8,.2,1)}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button{color:inherit;-webkit-appearance:none;appearance:none;touch-action:manipulation}
+a{color:var(--pink-dark)}
+:focus-visible{outline:none;box-shadow:var(--focus)!important}
+input,select,textarea{font-size:16px!important}
+input:focus,select:focus,textarea:focus{border-color:var(--pink)!important;box-shadow:var(--focus)}
+h1,h2,h3{letter-spacing:-.01em;color:var(--ink)}
+/* topo */
+.topbar{padding-top:max(8px,env(safe-area-inset-top));height:auto;min-height:66px;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
+.topbar img,.splashLogo img{mix-blend-mode:multiply;filter:contrast(1.05) brightness(1.03)}
+.topbar img{border-radius:0}
+.splashLogo img{border-radius:0;object-fit:contain}
+.splash h1{font-size:19px}
+/* atalhos da home */
+.dashboardQuick{grid-template-columns:1fr!important;gap:10px}
+.dashboardQuick button{border-left:1px solid var(--line)!important;padding:14px!important;gap:14px!important;min-height:72px;text-align:left;justify-content:flex-start}
+.dashboardQuick i{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto;background:var(--pink-soft);color:var(--pink)}
+.dashboardQuick button:nth-child(2) i{background:#fdf4e4;color:#c28a24}
+.dashboardQuick button:nth-child(3) i{background:#f5eeec;color:var(--brown)}
+.dashboardQuick i svg{width:21px;color:inherit}
+.dashboardQuick span{flex:1;display:flex;flex-direction:column;gap:2px}
+.dashboardQuick b{font-size:15px;color:var(--ink)}
+.dashboardQuick small{font-size:12.5px;color:var(--muted)}
+.dashboardQuick .chev{width:18px;color:#c4a59c}
+/* cartões e listas: feedback de toque */
+.pet,.budget,.vaccine,.menuCard,.hotelCard,.quick button,.stayRow{transition:transform .16s var(--ease),box-shadow .2s var(--ease)}
+.pet:active,.menuCard:active,.hotelCard:active,.quick button:active{transform:scale(.985)}
+.primary,.newButton,.actions button,.vaccine button,.segmented button,.icon,nav button{transition:transform .14s var(--ease),background .2s,opacity .2s}
+.primary:active,.newButton:active,.actions button:active{transform:scale(.97)}
+.primary:disabled,.newButton:disabled{opacity:.6}
+.icon{min-width:44px;min-height:44px;display:inline-grid;place-items:center;border-radius:12px}
+.actions button{min-height:44px}
+.segmented button{min-height:42px;font-weight:700}
+/* títulos de página */
+.title h1{font-size:26px}
+.title p{color:var(--muted);font-size:14px}
+.newButton{width:48px;height:48px;border-radius:16px}
+/* busca */
+.search{border-radius:16px;min-height:50px}
+.search:focus-within{border-color:var(--pink);box-shadow:var(--focus)}
+.search input{font-size:16px!important}
+/* vazio */
+.empty{background:#fffbfc;border-color:#ecd6dd;color:var(--muted);padding:36px 20px;display:grid;justify-items:center;gap:8px}
+.empty svg{color:var(--pink);opacity:.7}
+/* menu */
+.menuCard{min-height:76px;cursor:pointer}
+.menuCard b{color:var(--ink)}
+/* modais */
+.overlay{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fadeIn .2s var(--ease)}
+.modal{padding-bottom:calc(20px + env(safe-area-inset-bottom));animation:sheetUp .28s var(--ease);box-shadow:0 -10px 40px rgba(74,45,38,.18)}
+.modal:before{content:"";display:block;width:40px;height:5px;border-radius:99px;background:#e8d6d0;margin:-8px auto 6px}
+.modal label{font-size:13px}
+.modal input,.modal select,textarea{border-radius:14px;min-height:48px}
+/* navegação inferior */
+nav{bottom:calc(10px + env(safe-area-inset-bottom));border-radius:22px;box-shadow:0 12px 34px rgba(74,45,38,.16)}
+nav button{color:#a3827a}
+nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
+.app{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:.4}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+.quick.dashboardQuick{grid-template-rows:none!important}
+.quick.dashboardQuick button{justify-content:flex-start!important;text-align:left!important;padding:12px 14px!important;min-height:72px!important}
+.quick.dashboardQuick i svg{width:21px!important;height:21px!important;padding:0!important}
+.quick.dashboardQuick .chev{width:18px!important;height:18px!important;padding:0!important}
+.quick.dashboardQuick b{font-size:15px!important}
+.quick.dashboardQuick .chev,.quick.dashboardQuick i svg{background:none!important;box-shadow:none!important;border-radius:0!important}
+.topbar .brandMark{background:#fff!important;box-shadow:none!important;border:0!important}
