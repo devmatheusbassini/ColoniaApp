@@ -19,6 +19,7 @@ export const extraRate = (species: PetSpecies, season: Season) => season === 'Ne
 export const detectSeason = (entry: string, manual: Season): Season => manual !== 'Nenhum' ? manual : HIGH_SEASON_MONTHS.includes(parseDateParts(entry)?.month || 0) ? 'Alta temporada' : 'Nenhum'
 export const quoteForPet = (species: PetSpecies, season: Season, quantity: number): QuoteItem => ({ species, quantity, normalRate: rateFor(species, season) })
 const PLURAL: Record<PetSpecies, string> = { 'Cão': 'Cães', 'Gato': 'Gatos', 'Outros': 'Outros' }
+export const speciesName = (n: number, species: PetSpecies) => n > 1 ? PLURAL[species] : species
 export const speciesCount = (n: number, species: PetSpecies) => `${n} ${n > 1 ? PLURAL[species] : species}`
 export const quickLabel = (items: QuoteItem[]) => items.filter(x => x.quantity > 0).map(x => speciesCount(x.quantity, x.species)).join(' + ') || 'Orçamento rápido'
 export const validUntilFrom = (createdAt: Date) => dateKey(new Date(createdAt.getTime() + VALID_DAYS * 86400000))
