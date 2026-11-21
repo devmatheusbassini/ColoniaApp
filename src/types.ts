@@ -8,7 +8,7 @@ export type PetTerm = {
 export type Pet = {
  id:string; photo?:string; name:string; species:PetSpecies; breed?:string; birthDate?:string; age?:string; sex?:'Macho'|'Fêmea'|''; neutered?:YesNo;
  temperament?:string[]; temperamentNotes?:string; medicationType?:MedicationType; medicationDetails?:string; postStayNotes?:string;
- guardian:string; phone:string; address:string; guardianRg?:string; guardianCpf?:string; guardianInstagram?:string;
+ guardian:string; phone:string; address:string; addr?:{cep:string;street:string;number:string;complement:string;district:string;city:string;state:string}; guardianRg?:string; guardianCpf?:string; guardianInstagram?:string;
  emergencyName?:string; emergencyRelation?:string; emergencyPhone?:string;
  vetClinic?:string; vetClinicPhone?:string; veterinarianName?:string; veterinarianPhone?:string;
  notes?:string; latitude?:number; longitude?:number; signature?:string; termSignedAt?:string; term?:PetTerm; createdAt:string
