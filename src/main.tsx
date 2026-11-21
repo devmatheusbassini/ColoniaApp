@@ -4,7 +4,7 @@ import App from './App'
 import './styles/app.css'
 import { registerSW } from 'virtual:pwa-register'
 
-const updateSW=registerSW({immediate:true,onRegisteredSW(_u,r){if(!r)return;const check=()=>r.update().catch(()=>{});setInterval(check,60*1000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')check()})},onNeedRefresh(){updateSW(true)}})
+const updateSW=registerSW({immediate:true,onRegisteredSW(_u,r){if(!r)return;const check=()=>r.update().catch(()=>{});setInterval(check,5*1000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')check()})},onNeedRefresh(){updateSW(true)}})
 let reloaded=false
 navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(reloaded)return;reloaded=true;location.reload()})
 

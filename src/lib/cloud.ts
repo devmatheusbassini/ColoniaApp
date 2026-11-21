@@ -23,21 +23,40 @@ export async function pullRemote(userId: string): Promise<{ data: AppData; updat
  return { data: parseBackup(JSON.stringify(data.data)), updatedAt: data.updated_at }
 }
 
-export async function pushRemote(userId: string, appData: AppData): Promise<string> {
+const KEYS=['pets','vaccines','budgets','incidents'] as const
+// Junta dois estados por id. Nada é apagado, a não ser o que foi excluído de propósito (deleted).
+export function mergeData(base: AppData, other: AppData, preferOther: boolean): AppData {
+ const deleted = { ...(base.deleted || {}), ...(other.deleted || {}) }
+ const out: any = { deleted }
+ for (const k of KEYS) {
+  const map = new Map<string, any>()
+  for (const x of (base as any)[k] || []) map.set(x.id, x)
+  for (const x of (other as any)[k] || []) if (preferOther || !map.has(x.id)) map.set(x.id, x)
+  out[k] = [...map.values()].filter(x => !deleted[x.id])
+ }
+ return out as AppData
+}
+const sig = (d: AppData) => JSON.stringify(d)
+export const sameData = (a: AppData, b: AppData) => sig(a) === sig(b)
+
+// Envia juntando com o que já está na nuvem, para nunca sobrescrever dados de outro aparelho.
+export async function pushRemote(userId: string, local: AppData): Promise<{ data: AppData; updatedAt: string }> {
+ const remote = await pullRemote(userId)
+ const merged = remote ? mergeData(remote.data, local, true) : local
  const updatedAt = new Date().toISOString()
- const { error } = await supabase.from('app_state').upsert({ user_id: userId, data: appData, updated_at: updatedAt })
+ const { error } = await supabase.from('app_state').upsert({ user_id: userId, data: merged, updated_at: updatedAt })
  if (error) throw error
  writeMeta({ dirty: false, localUpdatedAt: updatedAt, remoteUpdatedAt: updatedAt })
- return updatedAt
+ return { data: merged, updatedAt }
 }
 
 const isEmpty = (d: AppData) => !d.pets.length && !d.budgets.length && !d.vaccines.length && !d.incidents.length
 
 export async function reconcile(userId: string, local: AppData): Promise<AppData> {
  const remote = await pullRemote(userId)
- const meta = readMeta()
- if (!remote || isEmpty(remote.data)) { if (!isEmpty(local)) await pushRemote(userId, local); else writeMeta({ dirty: false, localUpdatedAt: '', remoteUpdatedAt: remote?.updatedAt }); return local }
- if (meta.dirty && meta.localUpdatedAt > remote.updatedAt && !isEmpty(local)) { await pushRemote(userId, local); return local }
+ if (!remote) { if (!isEmpty(local)) return (await pushRemote(userId, local)).data; return local }
+ const merged = mergeData(remote.data, local, readMeta().dirty)
+ if (!sameData(merged, remote.data)) return (await pushRemote(userId, merged)).data
  writeMeta({ dirty: false, localUpdatedAt: remote.updatedAt, remoteUpdatedAt: remote.updatedAt })
- return remote.data
+ return merged
 }

@@ -27,4 +27,4 @@ export type Budget = {
  services?:ServiceItem[]; normalTotal?:number; discountedTotal?:number; notes?:string; status:BudgetStatus;
  paidValue?:number; payments?:Payment[]; entryConfirmedAt?:string; exitConfirmedAt?:string; cancelledAt?:string; removedFromBudgetListAt?:string; createdAt:string
 }
-export type AppData = { pets:Pet[]; vaccines:Vaccine[]; budgets:Budget[]; incidents:Incident[] }
+export type AppData = { pets:Pet[]; vaccines:Vaccine[]; budgets:Budget[]; incidents:Incident[]; deleted?:Record<string,string> }
