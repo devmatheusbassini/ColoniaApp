@@ -1,6 +1,8 @@
 
 import type { Pet, PetTerm, PetSpecies } from '../types'
 
+export const cpfMask=(v:string)=>v.replace(/\D/g,'').slice(0,11).replace(/^(\d{3})(\d)/,'$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d{1,2})$/,'.$1-$2')
+export const rgMask=(v:string)=>{const c=v.toUpperCase().replace(/[^\dX]/g,'');const d=c.slice(0,8).replace(/X/g,''),dv=c.length>8?c[8]:'';return (d.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3'))+(d.length===8&&dv?'-'+dv:'')}
 export const phoneMask=(v:string)=>{const d=v.replace(/\D/g,'').slice(0,11);if(d.length<=2)return d?`(${d}`:'';if(d.length<=6)return `(${d.slice(0,2)}) ${d.slice(2)}`;if(d.length<=10)return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`}
 export type PetForm={name:string;species:PetSpecies;breed:string;birthDate:string;age:string;sex:'Macho'|'Fêmea'|'';neutered:'Sim'|'Não'|'';temperament:string[];temperamentNotes:string;medicationType:'Contínua'|'Pontual'|'';medicationDetails:string;postStayNotes:string;guardian:string;phone:string;address:string;guardianRg:string;guardianCpf:string;guardianInstagram:string;emergencyName:string;emergencyRelation:string;emergencyPhone:string;vetClinic:string;vetClinicPhone:string;veterinarianName:string;veterinarianPhone:string;notes:string;photo:string;latitude?:number;longitude?:number;term:PetTerm}
 export const emptyTerm:PetTerm={vaccinesUpToDate:'',dewormingUpToDate:'',fleaTickMedication:'',imageAuthorization:'',bathOnExit:'',belongings:[],otherBelongings:'',foodQuantity:'',mealsPerDay:'',feedingTimes:'',instructions:''}
