@@ -8,6 +8,7 @@ const updateSW=registerSW({immediate:true,onRegisteredSW(_u,r){if(!r)return;cons
 let reloaded=false
 navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(reloaded)return;reloaded=true;location.reload()})
 
+class Guard extends React.Component<{children:React.ReactNode},{err:boolean}>{state={err:false};static getDerivedStateFromError(){return {err:true}};componentDidCatch(e:unknown){console.error(e)};render(){if(this.state.err){setTimeout(()=>(window as any).__showFix?.('Ocorreu um erro ao abrir. Toque para recarregar.'),0);return null}return this.props.children}}
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode><App /></React.StrictMode>,
+  <React.StrictMode><Guard><App /></Guard></React.StrictMode>,
 )

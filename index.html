@@ -13,6 +13,12 @@
     <title>Colônia de Férias da Tia Cí</title>
   </head>
   <body>
+    <script>
+window.__fixApp=async function(){try{const r=await navigator.serviceWorker?.getRegistrations();for(const x of r||[])await x.unregister();const k=await caches.keys();for(const c of k)await caches.delete(c)}catch(e){}location.reload()};
+window.__showFix=function(msg){var r=document.getElementById('root');if(!r||document.getElementById('appFix'))return;r.innerHTML='<div id="appFix" style="min-height:100vh;display:grid;place-items:center;padding:24px;font-family:system-ui;text-align:center;color:#57342b;background:#fff"><div><p style="font-weight:700;font-size:18px;margin:0 0 8px">O app precisa ser atualizado</p><p style="font-size:14px;color:#8c7068;margin:0 0 18px">'+(msg||'Toque no botão para carregar a versão mais recente.')+'</p><button onclick="__fixApp()" style="border:0;border-radius:16px;padding:14px 22px;background:#d25689;color:#fff;font-weight:800;font-size:16px">Atualizar agora</button></div></div>'};
+window.addEventListener('error',function(e){if(/Loading|import|chunk|module/i.test(String(e.message)))__showFix()});
+setTimeout(function(){var r=document.getElementById('root');if(r&&!r.children.length)__showFix()},10000);
+</script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
