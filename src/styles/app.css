@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.13.1 resumo do orçamento */
+/* v1.13.2 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -664,3 +664,9 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 
 /* Busca de raça */
 .breedPicker{position:relative}.breedValue{width:100%;display:flex;justify-content:space-between;align-items:center;border:1px solid #e3d1ca;background:#fff;border-radius:15px;padding:13px;color:var(--brown);font:inherit;text-align:left}.breedValue svg{width:16px;color:var(--pink)}.breedPop{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid #f0d6e0;border-radius:16px;box-shadow:0 14px 34px rgba(87,52,43,.16);padding:8px;display:grid;gap:6px}.breedList{max-height:240px;overflow-y:auto;display:grid}.breedList button{border:0;background:#fff;text-align:left;padding:11px 10px;border-radius:10px;color:var(--brown);font:inherit}.breedList button.selected{background:#fff0f6;color:#a23461;font-weight:700}
+
+/* Sem rolagem lateral nos cards */
+html,body{overflow-x:hidden;max-width:100%}main{min-width:0;max-width:100%}
+.pet{min-width:0;max-width:100%}.pet>div:not(.petTools){min-width:0;flex:1 1 auto}
+.petGuardian{display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;white-space:normal!important;overflow-wrap:anywhere}
+.petMeta{display:flex;flex-wrap:wrap;gap:6px}.petName{min-width:0}.petName b{overflow-wrap:anywhere}
