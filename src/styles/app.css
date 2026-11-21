@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.13.5 resumo do orçamento */
+/* v1.14.0 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -673,3 +673,7 @@ html,body{overflow-x:hidden;max-width:100%}main{min-width:0;max-width:100%}
 
 .petPhone{display:flex;align-items:center;gap:5px;font-size:13px;color:#8f6c64;margin-top:2px}.petPhone svg{width:15px;height:15px;flex:0 0 auto}.petGuardian svg{flex:0 0 auto}.petMeta{flex-wrap:nowrap!important;overflow:hidden}.petMeta i{white-space:nowrap}
 .petMeta i{min-width:0;overflow:hidden;text-overflow:ellipsis}
+
+/* Seletor de hóspede no orçamento */
+.petPicker{display:grid;gap:8px;margin:12px 0}.petPickerLabel{color:var(--brown);font-size:14px}.petPickerSearch{display:flex;align-items:center;gap:8px;border:1px solid #e3d1ca;border-radius:15px;padding:0 12px;background:#fff}.petPickerSearch svg{width:17px;color:#b08a80;flex:0 0 auto}.petPickerSearch input{border:0!important;outline:0;padding:12px 0!important;box-shadow:none!important;background:transparent;flex:1;min-width:0}.petPickerList{display:grid;gap:8px;max-height:46vh;overflow-y:auto;padding:2px}.petGroup{border:1px solid #f0e4e7;border-radius:16px;background:#fff;padding:8px}.petGroup.active{border-color:#e7a9c1;background:#fffafc}.petGroupHead{display:flex;align-items:center;gap:6px;font-size:12px;color:#8c7068;padding:2px 4px 6px;min-width:0}.petGroupHead svg{width:14px;flex:0 0 auto}.petGroupHead span{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.petGroupHead small{margin-left:auto;white-space:nowrap}.petGroupPets{display:grid;gap:6px}.petGroupPets button{display:flex;align-items:center;gap:10px;border:1px solid transparent;background:#fbf7f8;border-radius:13px;padding:7px 9px;text-align:left;color:var(--brown);min-width:0}.petGroupPets button .avatar{width:38px;height:38px;flex:0 0 38px}.petGroupPets button span{display:grid;min-width:0;flex:1}.petGroupPets button b{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.petGroupPets button small{font-size:11px;color:#8c7068}.petGroupPets button i{width:22px;height:22px;border-radius:50%;border:2px solid #e3c9d3;display:grid;place-items:center;flex:0 0 auto}.petGroupPets button.selected{background:#fff0f6;border-color:#d25689}.petGroupPets button.selected i{background:#d25689;border-color:#d25689;color:#fff}.petGroupPets button.selected i svg{width:14px}.petPickerHint{font-size:11px;color:#9a756d}
+.addSibling{width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:7px;border:1px dashed #d9b8c5;background:#fff9fb;color:var(--pink-dark);border-radius:15px;padding:12px;font-weight:800}.addSibling svg{width:17px}
