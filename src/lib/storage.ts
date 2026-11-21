@@ -4,7 +4,7 @@ const KEY='tia-ci-data-v1'
 const empty:AppData={pets:[],vaccines:[],budgets:[],incidents:[]}
 
 const UP=(v:any)=>typeof v==='string'?v.toLocaleUpperCase('pt-BR'):v
-const upPet=(p:any)=>({...p,name:UP(p.name),guardian:UP(p.guardian),emergencyName:UP(p.emergencyName),vetClinic:UP(p.vetClinic),veterinarianName:UP(p.veterinarianName)})
+const upPet=(p:any)=>({...p,temperament:Array.isArray(p.temperament)?p.temperament.map((t:string)=>t==='Ciumento'?'Possessivo':t):p.temperament,name:UP(p.name),guardian:UP(p.guardian),emergencyName:UP(p.emergencyName),vetClinic:UP(p.vetClinic),veterinarianName:UP(p.veterinarianName)})
 function normalize(raw:any):AppData{return {pets:Array.isArray(raw?.pets)?raw.pets.map(upPet):[],vaccines:Array.isArray(raw?.vaccines)?raw.vaccines:[],budgets:(Array.isArray(raw?.budgets)?raw.budgets:[]).map((b:any)=>({...b,quickPetName:UP(b.quickPetName),quickGuardianName:UP(b.quickGuardianName),payments:b.payments||[],discountedTotal:typeof b.discountedTotal==='number'?b.discountedTotal:legacyTotal(b),timeExtraValue:b.timeExtraValue??(b.timeExtra?30:undefined)})),incidents:Array.isArray(raw?.incidents)?raw.incidents:[]}}
 
 export function loadData():AppData { try { return normalize(JSON.parse(localStorage.getItem(KEY)||'null')||empty) } catch { return empty } }
