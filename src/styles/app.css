@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.17.1 resumo do orçamento */
+/* v1.18.0 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -704,3 +704,7 @@ html,body{overflow-x:hidden;max-width:100%}main{min-width:0;max-width:100%}
 .backupReminder{display:flex;align-items:center;gap:10px;background:#fff7e7;border:1px solid #efdcae;border-radius:18px;padding:12px;margin-bottom:14px;flex-wrap:wrap}.backupReminder>svg{width:24px;color:#b7862f;flex:0 0 auto}.backupReminder>div{display:grid;flex:1;min-width:180px}.backupReminder b{color:var(--brown)}.backupReminder span{font-size:12px;color:#7a5a3a}.backupReminder button{display:flex;align-items:center;gap:6px;border:0;background:#d25689;color:#fff;border-radius:13px;padding:10px 14px;font-weight:800;min-height:44px}.backupReminder button svg{width:16px}
 
 .typeName{display:grid;gap:6px;margin-top:12px;text-align:left;font-size:13px;color:var(--brown)}.typeName input{text-transform:uppercase}.confirmDelete:disabled{opacity:.45;cursor:not-allowed}
+
+#updBar{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:999;border:0;border-radius:16px;padding:13px 16px;background:#57342b;color:#fff;font:inherit;font-weight:800;font-size:14px;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+
+.avatar.deceased img,.avatar.deceased svg{filter:grayscale(1);opacity:.55}.pet.deceased{opacity:.75}.pet.deceased .petName b{color:#8c7f7b}.memoryBadge{font-style:normal;font-size:10px;font-weight:800;color:#6f6461;background:#eeeae9;border-radius:999px;padding:3px 8px;margin-left:6px;white-space:nowrap}.memoryToggle{width:100%;margin-top:10px;border:1px solid #e3dcda;background:#f7f5f4;color:#6f6461;border-radius:15px;padding:12px;font-weight:800}

@@ -5,7 +5,7 @@ export type PetTerm = {
  vaccinesUpToDate?:YesNo; dewormingUpToDate?:YesNo; fleaTickMedication?:YesNo; imageAuthorization?:YesNo; bathOnExit?:YesNo;
  belongings?:string[]; otherBelongings?:string; foodQuantity?:string; mealsPerDay?:string; feedingTimes?:string; instructions?:string
 }
-export type Pet = { trashedAt?:string;
+export type Pet = { trashedAt?:string; deceasedAt?:string;
  id:string; photo?:string; name:string; species:PetSpecies; breed?:string; birthDate?:string; age?:string; sex?:'Macho'|'Fêmea'|''; neutered?:YesNo;
  temperament?:string[]; temperamentNotes?:string; medicationType?:MedicationType; medicationDetails?:string; postStayNotes?:string;
  guardian:string; phone:string; address:string; addr?:{cep:string;street:string;number:string;complement:string;district:string;city:string;state:string}; guardianRg?:string; guardianCpf?:string; guardianInstagram?:string;
