@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.16.0 resumo do orçamento */
+/* v1.17.0 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -698,3 +698,7 @@ html,body{overflow-x:hidden;max-width:100%}main{min-width:0;max-width:100%}
 .tutorPicker{display:grid;gap:8px;margin:4px 0 14px}.tutorPickerToggle{display:flex;align-items:center;justify-content:center;gap:7px;border:1px dashed #d9b8c5;background:#fff9fb;color:var(--pink-dark);border-radius:15px;padding:12px;font-weight:800}.tutorPickerToggle svg{width:17px}.tutorPickerList{display:grid;gap:6px;max-height:40vh;overflow-y:auto}.tutorPickerList button{display:flex;align-items:center;gap:10px;border:1px solid #f0e4e7;background:#fff;border-radius:13px;padding:10px 12px;text-align:left;color:var(--brown)}.tutorPickerList button span{display:grid;flex:1;min-width:0}.tutorPickerList button b{font-size:14px}.tutorPickerList button small{font-size:11px;color:#8c7068}.tutorPickerList button svg{width:17px;color:#d9b8c5;flex:0 0 auto}
 
 .addChip{border:1px dashed #d25689!important;background:#fff9fb!important;color:var(--pink-dark)!important;font-weight:800}
+
+/* Lixeira e lembrete de backup */
+.trashHead{margin:18px 2px 8px;font-size:15px;color:var(--brown)}.trashItem{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #f0e4e7;border-radius:16px;padding:10px 12px;margin-bottom:8px}.trashItem>div{display:grid;flex:1;min-width:0}.trashItem b{font-size:14px;overflow-wrap:anywhere}.trashItem small{font-size:11px;color:#8c7068}.trashItem button{display:flex;align-items:center;gap:4px;border:1px solid #ead8d1;background:#fff;color:var(--pink-dark);border-radius:12px;padding:8px 10px;font-weight:800;font-size:12px;flex:0 0 auto;min-height:40px}.trashItem button.danger{color:#c0392b;padding:8px}.trashItem svg{width:16px}
+.backupReminder{display:flex;align-items:center;gap:10px;background:#fff7e7;border:1px solid #efdcae;border-radius:18px;padding:12px;margin-bottom:14px;flex-wrap:wrap}.backupReminder>svg{width:24px;color:#b7862f;flex:0 0 auto}.backupReminder>div{display:grid;flex:1;min-width:180px}.backupReminder b{color:var(--brown)}.backupReminder span{font-size:12px;color:#7a5a3a}.backupReminder button{display:flex;align-items:center;gap:6px;border:0;background:#d25689;color:#fff;border-radius:13px;padding:10px 14px;font-weight:800;min-height:44px}.backupReminder button svg{width:16px}
