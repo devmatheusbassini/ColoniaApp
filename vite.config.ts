@@ -12,7 +12,7 @@ export default defineConfig({
         name: 'Colônia Tia Cí',
         short_name: 'Colônia Tia Cí',
         description: 'Gestão de hospedagem, clientes, agenda, vacinas e termos para pets.',
-        theme_color: '#d9578f',
+        theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
