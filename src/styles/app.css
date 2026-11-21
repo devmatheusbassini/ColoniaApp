@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.12.0 resumo do orçamento */
+/* v1.13.0 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -661,3 +661,6 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 /* Endereço estruturado */
 .addrBox{display:grid;gap:10px;margin-top:12px;border:1px solid #f0e4e7;background:#fffafc;border-radius:18px;padding:14px}.addrHead{display:flex;align-items:center;justify-content:space-between;gap:8px}.addrHead b{display:flex;align-items:center;gap:6px;color:var(--brown)}.addrHead b svg{width:17px;color:var(--pink)}.addrHead button{border:1px solid #ead8d1;background:#fff;color:var(--pink-dark);border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:5px;font-weight:800;font-size:12px}.addrHead button svg{width:15px}.addrGrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.addrGrid label{margin:0;min-width:0}.addrGrid .cep{grid-column:span 2}.addrGrid .uf{grid-column:span 1}.addrGrid .city{grid-column:span 3}.addrGrid .street{grid-column:span 5}.addrGrid .num{grid-column:span 1}.addrGrid .comp,.addrGrid .dist{grid-column:span 3}.addrGrid small{font-size:10px;color:var(--pink)}.addrBox>small{font-size:10px;color:#9a756d}.addrLegacy{background:#fff7e7;border:1px solid #efdcae;border-radius:12px;padding:8px 10px;font-size:12px!important;color:#7a5a3a!important}
 @media(max-width:600px){.addrGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.addrGrid .cep,.addrGrid .uf{grid-column:span 2}.addrGrid .city,.addrGrid .comp,.addrGrid .dist{grid-column:1/-1}.addrGrid .street{grid-column:span 3}.addrGrid .num{grid-column:span 1}}
+
+/* Busca de raça */
+.breedPicker{position:relative}.breedValue{width:100%;display:flex;justify-content:space-between;align-items:center;border:1px solid #e3d1ca;background:#fff;border-radius:15px;padding:13px;color:var(--brown);font:inherit;text-align:left}.breedValue svg{width:16px;color:var(--pink)}.breedPop{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid #f0d6e0;border-radius:16px;box-shadow:0 14px 34px rgba(87,52,43,.16);padding:8px;display:grid;gap:6px}.breedList{max-height:240px;overflow-y:auto;display:grid}.breedList button{border:0;background:#fff;text-align:left;padding:11px 10px;border-radius:10px;color:var(--brown);font:inherit}.breedList button.selected{background:#fff0f6;color:#a23461;font-weight:700}
