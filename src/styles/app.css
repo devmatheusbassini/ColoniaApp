@@ -612,7 +612,7 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .discSwitch.on em{background:#e2528f}.discSwitch.on em::after{transform:translateX(22px)}
 .discSwitch input:focus-visible+em{outline:2px solid #d6417f;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.discSwitch em,.discSwitch em::after{transition:none}}
-/* v1.15.0 resumo do orçamento */
+/* v1.15.1 resumo do orçamento */
 .sumCard{background:#fff;border:1px solid #f3e1ea;border-radius:22px;overflow:hidden;box-shadow:0 6px 20px rgba(190,60,120,.08);margin-bottom:16px}
 .sumHead{display:flex;align-items:center;gap:12px;padding:16px;background:linear-gradient(135deg,#fff7fb,#fdeef5)}
 .sumHead>i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#d6417f;flex:none}
@@ -696,3 +696,5 @@ html,body{overflow-x:hidden;max-width:100%}main{min-width:0;max-width:100%}
 
 /* Tutor já cadastrado */
 .tutorPicker{display:grid;gap:8px;margin:4px 0 14px}.tutorPickerToggle{display:flex;align-items:center;justify-content:center;gap:7px;border:1px dashed #d9b8c5;background:#fff9fb;color:var(--pink-dark);border-radius:15px;padding:12px;font-weight:800}.tutorPickerToggle svg{width:17px}.tutorPickerList{display:grid;gap:6px;max-height:40vh;overflow-y:auto}.tutorPickerList button{display:flex;align-items:center;gap:10px;border:1px solid #f0e4e7;background:#fff;border-radius:13px;padding:10px 12px;text-align:left;color:var(--brown)}.tutorPickerList button span{display:grid;flex:1;min-width:0}.tutorPickerList button b{font-size:14px}.tutorPickerList button small{font-size:11px;color:#8c7068}.tutorPickerList button svg{width:17px;color:#d9b8c5;flex:0 0 auto}
+
+.addChip{border:1px dashed #d25689!important;background:#fff9fb!important;color:var(--pink-dark)!important;font-weight:800}
