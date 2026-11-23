@@ -1,0 +1,2621 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "7671708dffae2ff19b501ddbf09f45aa73aa18b6",
+  "generatedAt": "2026-11-21T13:17:37.548Z",
+  "files": {
+    ".env": {
+      "filePath": ".env",
+      "contentHash": "fb8bfa0b4bdd435e8c627c3140bf8e5e17405f6c0dade7b2e9c0f3832524e38d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    ".ua/config.json": {
+      "filePath": ".ua/config.json",
+      "contentHash": "595650890dcbc13bc99a9d042c303c2e1281ab3f092daf83385fa3eadac67e8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "eec400d96044d03fe401f38b803f8a2e9e97e3e244f038cdf2a687689cd667a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": false
+    },
+    "capacitor.config.ts": {
+      "filePath": "capacitor.config.ts",
+      "contentHash": "2f57d1e68194bfef016b095f28d694bc04efedf6b1059a8db361f1de89bb5744",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@capacitor/cli",
+          "specifiers": [
+            "CapacitorConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "docs/refactor-log.md": {
+      "filePath": "docs/refactor-log.md",
+      "contentHash": "4ffe29e1a111684f599c7be39dca49786e52b3e3fc0b1ad3a42ae25af0c94721",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    "index.html": {
+      "filePath": "index.html",
+      "contentHash": "0c3b0fdc8fe17294a6f79d887b52d37b6b50ee1ff3fadb6bdb7ea5a22ab97368",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "51d1d0c67344e17b1526ea00011471a1678a9596c14e4c173f2718fef7ccf2e8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": false
+    },
+    "src/App.tsx": {
+      "filePath": "src/App.tsx",
+      "contentHash": "615f1c5644d576c0ba57cdfa51a30e155ac511b5b75b1ce10f29a8aeaca03504",
+      "functions": [
+        {
+          "name": "App",
+          "params": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "MainApp",
+          "params": [
+            "{userId}"
+          ],
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "CalendarDays",
+            "CircleDollarSign",
+            "Home",
+            "PawPrint",
+            "Sparkles",
+            "Syringe",
+            "Users"
+          ]
+        },
+        {
+          "source": "@supabase/supabase-js",
+          "specifiers": [
+            "Session"
+          ]
+        },
+        {
+          "source": "./lib/cloud",
+          "specifiers": [
+            "currentSession",
+            "supabase"
+          ]
+        },
+        {
+          "source": "./lib/useCloudSync",
+          "specifiers": [
+            "useCloudSync"
+          ]
+        },
+        {
+          "source": "./ui/common",
+          "specifiers": [
+            "Splash"
+          ]
+        },
+        {
+          "source": "./features/auth/Login",
+          "specifiers": [
+            "Login"
+          ]
+        },
+        {
+          "source": "./features/home/Dashboard",
+          "specifiers": [
+            "Dashboard"
+          ]
+        },
+        {
+          "source": "./navigation",
+          "specifiers": [
+            "Go",
+            "Tab"
+          ]
+        },
+        {
+          "source": "./features/pets/Clients",
+          "specifiers": [
+            "Clients"
+          ]
+        },
+        {
+          "source": "./features/budgets/Budgets",
+          "specifiers": [
+            "Budgets"
+          ]
+        },
+        {
+          "source": "./features/agenda/Agenda",
+          "specifiers": [
+            "Agenda"
+          ]
+        },
+        {
+          "source": "./features/vaccines/Vaccines",
+          "specifiers": [
+            "Vaccines"
+          ]
+        },
+        {
+          "source": "./features/menu/Menu",
+          "specifiers": [
+            "Menu",
+            "BackupReminder"
+          ]
+        },
+        {
+          "source": "./lib/trash",
+          "specifiers": [
+            "visible",
+            "unhide",
+            "purgePet",
+            "expired"
+          ]
+        }
+      ],
+      "exports": [
+        "App"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "src/domain/budget.ts": {
+      "filePath": "src/domain/budget.ts",
+      "contentHash": "7a730b3a13521078c4b0ae8558b9ce521340de80ac354f9e31023928bc8cec59",
+      "functions": [
+        {
+          "name": "rateFor",
+          "params": [
+            "species",
+            "season"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "extraRate",
+          "params": [
+            "species",
+            "season"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "detectSeason",
+          "params": [
+            "entry",
+            "manual"
+          ],
+          "returnType": "Season",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "quoteForPet",
+          "params": [
+            "species",
+            "season",
+            "quantity"
+          ],
+          "returnType": "QuoteItem",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "speciesName",
+          "params": [
+            "n",
+            "species"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "speciesCount",
+          "params": [
+            "n",
+            "species"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "quickLabel",
+          "params": [
+            "items"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "validUntilFrom",
+          "params": [
+            "createdAt"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "budgetValidUntil",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dayPeriod",
+          "params": [
+            "t"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "autoExtra",
+          "params": [
+            "entry",
+            "exit"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "budgetDays",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "totalBudget",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "legacyTotal",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "amountPaid",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "balanceDue",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "paymentStatus",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isBooked",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "budgetPetIds",
+          "params": [
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "joinNames",
+          "params": [
+            "n"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "budgetPets",
+          "params": [
+            "b",
+            "pets"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "guestName",
+          "params": [
+            "b",
+            "pets"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../types",
+          "specifiers": [
+            "Budget",
+            "Pet",
+            "PetSpecies",
+            "QuoteItem"
+          ]
+        },
+        {
+          "source": "./format",
+          "specifiers": [
+            "dateKey",
+            "daysBetween",
+            "parseDateParts"
+          ]
+        }
+      ],
+      "exports": [
+        "rateFor",
+        "extraRate",
+        "detectSeason",
+        "quoteForPet",
+        "speciesName",
+        "speciesCount",
+        "quickLabel",
+        "validUntilFrom",
+        "budgetValidUntil",
+        "autoExtra",
+        "budgetDays",
+        "totalBudget",
+        "legacyTotal",
+        "amountPaid",
+        "balanceDue",
+        "paymentStatus",
+        "isBooked",
+        "budgetPetIds",
+        "joinNames",
+        "budgetPets",
+        "guestName"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "src/domain/format.ts": {
+      "filePath": "src/domain/format.ts",
+      "contentHash": "f16edbcb60305a908cf7ab7419a5bdd8e1422ff16005a5830399ccbc2c77e3ef",
+      "functions": [
+        {
+          "name": "money",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dateKey",
+          "params": [
+            "d"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "localDate",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dateBR",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dateLongBR",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parseDateParts",
+          "params": [
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "dateToUtc",
+          "params": [
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "daysBetween",
+          "params": [
+            "entry",
+            "exit"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "parseMoney",
+          "params": [
+            "text"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "money",
+        "dateKey",
+        "localDate",
+        "dateBR",
+        "dateLongBR",
+        "parseDateParts",
+        "dateToUtc",
+        "daysBetween",
+        "parseMoney"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/domain/pet.ts": {
+      "filePath": "src/domain/pet.ts",
+      "contentHash": "79ae024275574caa188620dfa9ecda3d14b14f639d9c3e087b01e740f96b81b1",
+      "functions": [
+        {
+          "name": "cpfMask",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "rgMask",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "phoneMask",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "calculateAge",
+          "params": [
+            "birthDate"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "norm",
+          "params": [
+            "s"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "digits",
+          "params": [
+            "s"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "findDuplicatePet",
+          "params": [
+            "pets",
+            "c",
+            "exceptId"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cepMask",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "formatAddr",
+          "params": [
+            "a"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "upper",
+          "params": [
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../types",
+          "specifiers": [
+            "Pet",
+            "PetTerm",
+            "PetSpecies"
+          ]
+        }
+      ],
+      "exports": [
+        "cpfMask",
+        "rgMask",
+        "phoneMask",
+        "emptyTerm",
+        "blankPet",
+        "temperamentOptions",
+        "dogBreeds",
+        "catBreeds",
+        "calculateAge",
+        "findDuplicatePet",
+        "blankAddr",
+        "UFS",
+        "cepMask",
+        "formatAddr",
+        "upper"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/agenda/Agenda.tsx": {
+      "filePath": "src/features/agenda/Agenda.tsx",
+      "contentHash": "b5d4e2251242d0a9c67ca6bf2b45dd18cbcbbb4a2af19c300b9dc7c1ad2baffc",
+      "functions": [
+        {
+          "name": "Agenda",
+          "params": [
+            "{data}"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "DayGuests",
+          "params": [
+            "{date,data,items,close}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "DayRow",
+          "params": [
+            "{b,pet}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useMemo",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "CalendarDays",
+            "ChevronLeft",
+            "ChevronRight"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Budget",
+            "Pet"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "money",
+            "dateKey",
+            "localDate",
+            "dateBR",
+            "dateLongBR"
+          ]
+        },
+        {
+          "source": "../../domain/budget",
+          "specifiers": [
+            "budgetDays",
+            "totalBudget",
+            "isBooked",
+            "guestName"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Avatar",
+            "Title",
+            "Modal"
+          ]
+        }
+      ],
+      "exports": [
+        "Agenda",
+        "DayGuests",
+        "DayRow"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/auth/Login.tsx": {
+      "filePath": "src/features/auth/Login.tsx",
+      "contentHash": "a2a9fcfeb119e09a6eda1c8e0f95722fe8c5e670833c6d2956e3aaa96414b0e3",
+      "functions": [
+        {
+          "name": "Login",
+          "params": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "AlertTriangle",
+            "Eye",
+            "EyeOff",
+            "Lock",
+            "Mail",
+            "PawPrint"
+          ]
+        },
+        {
+          "source": "../../lib/cloud",
+          "specifiers": [
+            "supabase"
+          ]
+        }
+      ],
+      "exports": [
+        "Login"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/budgets/Budgets.tsx": {
+      "filePath": "src/features/budgets/Budgets.tsx",
+      "contentHash": "405489d43ea037a43bd3fe69464633ae439775ea4b1777963fb4b57514e5be21",
+      "functions": [
+        {
+          "name": "blankPayment",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "Budgets",
+          "params": [
+            "{data,setData,openIntent,clearIntent}"
+          ],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "tutorKey",
+          "params": [
+            "p"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "fold",
+          "params": [
+            "x"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "PetPicker",
+          "params": [
+            "{pets,petId,petIds,set}"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "RemoveBudget",
+          "params": [
+            "{close,confirm}"
+          ],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "CalendarDays",
+            "Check",
+            "Clock3",
+            "Download",
+            "Edit3",
+            "Minus",
+            "PawPrint",
+            "Plus",
+            "Search",
+            "Share2",
+            "Sparkles",
+            "Trash2",
+            "Users",
+            "X"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Budget",
+            "Pet",
+            "PetSpecies",
+            "QuoteItem",
+            "ServiceItem"
+          ]
+        },
+        {
+          "source": "../../lib/storage",
+          "specifiers": [
+            "uid"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "budgetPdf",
+            "stayPdf"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "money",
+            "dateKey",
+            "localDate",
+            "dateBR",
+            "dateToUtc",
+            "daysBetween",
+            "parseMoney"
+          ]
+        },
+        {
+          "source": "../../domain/budget",
+          "specifiers": [
+            "budgetDays",
+            "totalBudget",
+            "autoExtra",
+            "detectSeason",
+            "extraRate",
+            "quoteForPet",
+            "quickLabel",
+            "amountPaid",
+            "balanceDue",
+            "guestName",
+            "validUntilFrom",
+            "joinNames",
+            "speciesCount",
+            "speciesName"
+          ]
+        },
+        {
+          "source": "../../domain/pet",
+          "specifiers": [
+            "phoneMask",
+            "emptyTerm",
+            "findDuplicatePet"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Title",
+            "Avatar",
+            "Modal",
+            "Field",
+            "Empty"
+          ]
+        }
+      ],
+      "exports": [
+        "Budgets"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/home/Dashboard.tsx": {
+      "filePath": "src/features/home/Dashboard.tsx",
+      "contentHash": "c9b1ab60761f418cd38b33d8c71578d8c850924ab719cf39bb0445c9a0f1ff44",
+      "functions": [
+        {
+          "name": "Dashboard",
+          "params": [
+            "{data,go}"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "../../navigation",
+          "specifiers": [
+            "Go"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "CalendarDays",
+            "ChevronRight",
+            "CircleDollarSign",
+            "Clock3",
+            "HousePlus",
+            "PawPrint",
+            "Users"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Budget"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "money",
+            "localDate",
+            "dateBR"
+          ]
+        },
+        {
+          "source": "../../domain/budget",
+          "specifiers": [
+            "totalBudget",
+            "isBooked",
+            "paymentStatus",
+            "guestName"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Avatar",
+            "Modal",
+            "Empty"
+          ]
+        }
+      ],
+      "exports": [
+        "Dashboard"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/menu/Menu.tsx": {
+      "filePath": "src/features/menu/Menu.tsx",
+      "contentHash": "7bbdd5ebbbcc6c2a82eb74dbca2fe1c8caf8a4efde2e4daa4db85aaedeb9e686",
+      "functions": [
+        {
+          "name": "Menu",
+          "params": [
+            "{data,setData,full,setFull,sync,retry}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Backup",
+          "params": [
+            "{data,setData}"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "CloudStatus",
+          "params": [
+            "{sync,retry}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Finance",
+          "params": [
+            "{data,setData,sync,retry,close}"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "BackupReminder",
+          "params": [
+            "{data}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Trash",
+          "params": [
+            "{full,setFull,close}"
+          ],
+          "exported": false,
+          "lineCount": 15
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "../../lib/share",
+          "specifiers": [
+            "shareOrDownload"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "../../lib/useCloudSync",
+          "specifiers": [
+            "SyncStatus"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Cloud",
+            "Trash2",
+            "RotateCcw",
+            "ShieldCheck",
+            "CalendarDays",
+            "ChevronLeft",
+            "ChevronRight",
+            "Download",
+            "Share2",
+            "Upload",
+            "WalletCards"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData"
+          ]
+        },
+        {
+          "source": "../../lib/cloud",
+          "specifiers": [
+            "readMeta",
+            "supabase"
+          ]
+        },
+        {
+          "source": "../../lib/storage",
+          "specifiers": [
+            "backupFileName",
+            "backupJson",
+            "parseBackup"
+          ]
+        },
+        {
+          "source": "../../lib/trash",
+          "specifiers": [
+            "purgePet",
+            "daysLeft",
+            "markBackup",
+            "lastBackup",
+            "backupDue"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "requestDataPdf",
+            "standardAuthorizationPdf"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "money",
+            "localDate",
+            "dateBR"
+          ]
+        },
+        {
+          "source": "../../domain/budget",
+          "specifiers": [
+            "isBooked",
+            "balanceDue"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Title",
+            "Modal",
+            "Empty"
+          ]
+        }
+      ],
+      "exports": [
+        "Menu",
+        "Backup",
+        "CloudStatus",
+        "Finance",
+        "BackupReminder"
+      ],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/pets/Clients.tsx": {
+      "filePath": "src/features/pets/Clients.tsx",
+      "contentHash": "bea00bfe359a7c0ce40e58cac53d19761ccb4942738572fde3b9c3faeece3403",
+      "functions": [
+        {
+          "name": "Clients",
+          "params": [
+            "{data,setData,openIntent,clearIntent}"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "tutorOf",
+          "params": [
+            "f"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "sameTutor",
+          "params": [
+            "a",
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "foldT",
+          "params": [
+            "x"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "TutorPicker",
+          "params": [
+            "{pets,pick}"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "AddressField",
+          "params": [
+            "{form,setForm}"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "norm",
+          "params": [
+            "x"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "BreedPicker",
+          "params": [
+            "{value,options,set}"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ConfirmDelete",
+          "params": [
+            "{pet,close,confirm}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Phone",
+            "AlertTriangle",
+            "Check",
+            "Edit3",
+            "MapPin",
+            "PawPrint",
+            "Search",
+            "Sparkles",
+            "Syringe",
+            "Trash2",
+            "Upload",
+            "Users"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Pet",
+            "PetSpecies"
+          ]
+        },
+        {
+          "source": "../../lib/storage",
+          "specifiers": [
+            "uid"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "termPdf"
+          ]
+        },
+        {
+          "source": "../../domain/pet",
+          "specifiers": [
+            "phoneMask",
+            "cpfMask",
+            "rgMask",
+            "PetForm",
+            "emptyTerm",
+            "blankPet",
+            "temperamentOptions",
+            "dogBreeds",
+            "catBreeds",
+            "calculateAge",
+            "findDuplicatePet",
+            "upper",
+            "Addr",
+            "blankAddr",
+            "UFS",
+            "cepMask",
+            "formatAddr"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "YesNoField",
+            "Avatar",
+            "Title",
+            "Modal",
+            "Field",
+            "Empty"
+          ]
+        },
+        {
+          "source": "./PetDetails",
+          "specifiers": [
+            "PetDetails"
+          ]
+        },
+        {
+          "source": "./Signature",
+          "specifiers": [
+            "Signature"
+          ]
+        },
+        {
+          "source": "./ImageCrop",
+          "specifiers": [
+            "ImageCrop"
+          ]
+        }
+      ],
+      "exports": [
+        "Clients",
+        "TUTOR_KEYS",
+        "tutorOf",
+        "sameTutor",
+        "TutorPicker",
+        "AddressField",
+        "BreedPicker",
+        "ConfirmDelete"
+      ],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/pets/ImageCrop.tsx": {
+      "filePath": "src/features/pets/ImageCrop.tsx",
+      "contentHash": "a890a229b4e5f29538e7b66d78388c19469404366c040481acfcbfb0f8436d04",
+      "functions": [
+        {
+          "name": "fitted",
+          "params": [
+            "img",
+            "rot"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "clamp",
+          "params": [
+            "img",
+            "v"
+          ],
+          "returnType": "View",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "draw",
+          "params": [
+            "ctx",
+            "img",
+            "size",
+            "v"
+          ],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "ImageCrop",
+          "params": [
+            "{ image, close, save }"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Check",
+            "Minus",
+            "Plus",
+            "RotateCcw",
+            "RotateCw"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Modal"
+          ]
+        }
+      ],
+      "exports": [
+        "ImageCrop"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/pets/PetDetails.tsx": {
+      "filePath": "src/features/pets/PetDetails.tsx",
+      "contentHash": "8098111a895e9077225caf6ec82c17951a2752040bd150b20fb9f73b4f2e8e24",
+      "functions": [
+        {
+          "name": "PetDetails",
+          "params": [
+            "{pet,data,setData,close,edit,sign,addSibling,onPet}"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "AlertTriangle",
+            "Check",
+            "Download",
+            "Edit3",
+            "Plus",
+            "Share2",
+            "Syringe",
+            "Trash2",
+            "Upload"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Incident",
+            "Pet"
+          ]
+        },
+        {
+          "source": "../../lib/storage",
+          "specifiers": [
+            "uid"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "budgetPdf",
+            "requestDataPdf",
+            "termPdf"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "money",
+            "localDate",
+            "dateBR"
+          ]
+        },
+        {
+          "source": "../../domain/budget",
+          "specifiers": [
+            "budgetDays",
+            "totalBudget",
+            "isBooked",
+            "amountPaid",
+            "budgetPetIds"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "YesNoField",
+            "Info",
+            "Avatar",
+            "Modal",
+            "Empty"
+          ]
+        }
+      ],
+      "exports": [
+        "PetDetails"
+      ],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/pets/Signature.tsx": {
+      "filePath": "src/features/pets/Signature.tsx",
+      "contentHash": "51f4acfc207e8a4179f6f40d394b9035289d5f2708160bff3781c51955c3fe63",
+      "functions": [
+        {
+          "name": "Signature",
+          "params": [
+            "{pet,close,save}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Check",
+            "Download"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "Pet"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "termPdf"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Modal"
+          ]
+        }
+      ],
+      "exports": [
+        "Signature"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/features/vaccines/Vaccines.tsx": {
+      "filePath": "src/features/vaccines/Vaccines.tsx",
+      "contentHash": "756d8c204ff82cb2335c6db2716832920b789c49a461693b553f4bbb1c4b2a75",
+      "functions": [
+        {
+          "name": "Vaccines",
+          "params": [
+            "{data,setData}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/plural",
+          "specifiers": [
+            "pl"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "AlertTriangle",
+            "Check",
+            "PawPrint",
+            "Share2",
+            "Syringe",
+            "Upload"
+          ]
+        },
+        {
+          "source": "../../types",
+          "specifiers": [
+            "AppData",
+            "Vaccine"
+          ]
+        },
+        {
+          "source": "../../lib/storage",
+          "specifiers": [
+            "uid"
+          ]
+        },
+        {
+          "source": "../../lib/pdf",
+          "specifiers": [
+            "vaccinePdf"
+          ]
+        },
+        {
+          "source": "../../domain/format",
+          "specifiers": [
+            "localDate",
+            "dateBR"
+          ]
+        },
+        {
+          "source": "../../ui/common",
+          "specifiers": [
+            "Title",
+            "Modal",
+            "Field",
+            "Empty"
+          ]
+        }
+      ],
+      "exports": [
+        "Vaccines"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/cloud.ts": {
+      "filePath": "src/lib/cloud.ts",
+      "contentHash": "4589e0f0a496c77656bfff86fb6c7282971a892f200e316226f661e30512cc01",
+      "functions": [
+        {
+          "name": "readMeta",
+          "params": [],
+          "returnType": "SyncMeta",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "writeMeta",
+          "params": [
+            "m"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "markDirty",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentSession",
+          "params": [],
+          "returnType": "Promise<Session | null>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "pullRemote",
+          "params": [
+            "userId"
+          ],
+          "returnType": "Promise<{ data: AppData; updatedAt: string } | null>",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "mergeData",
+          "params": [
+            "base",
+            "other",
+            "preferOther"
+          ],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "sig",
+          "params": [
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "sameData",
+          "params": [
+            "a",
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "pushRemote",
+          "params": [
+            "userId",
+            "local"
+          ],
+          "returnType": "Promise<{ data: AppData; updatedAt: string }>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "isEmpty",
+          "params": [
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "reconcile",
+          "params": [
+            "userId",
+            "local"
+          ],
+          "returnType": "Promise<AppData>",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@supabase/supabase-js",
+          "specifiers": [
+            "createClient",
+            "Session"
+          ]
+        },
+        {
+          "source": "../types",
+          "specifiers": [
+            "AppData"
+          ]
+        },
+        {
+          "source": "./storage",
+          "specifiers": [
+            "parseBackup"
+          ]
+        }
+      ],
+      "exports": [
+        "supabase",
+        "readMeta",
+        "writeMeta",
+        "markDirty",
+        "currentSession",
+        "pullRemote",
+        "mergeData",
+        "sameData",
+        "pushRemote",
+        "reconcile"
+      ],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/pdf.ts": {
+      "filePath": "src/lib/pdf.ts",
+      "contentHash": "966450c3a8dac32c6724fa3f0e2aa3184e399e47093d389873526f42880fef64",
+      "functions": [
+        {
+          "name": "logoData",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "addHeader",
+          "params": [
+            "doc",
+            "title",
+            "identification",
+            "logo"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "addFooter",
+          "params": [
+            "doc"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "section",
+          "params": [
+            "doc",
+            "title",
+            "y"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "row",
+          "params": [
+            "doc",
+            "label",
+            "value",
+            "y",
+            "emphasis"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "deliver",
+          "params": [
+            "doc",
+            "filename",
+            "title"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "budgetPdf",
+          "params": [
+            "pets",
+            "b",
+            "total"
+          ],
+          "exported": true,
+          "lineCount": 42
+        },
+        {
+          "name": "vaccinePdf",
+          "params": [
+            "pet",
+            "v"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "termPdf",
+          "params": [
+            "pet"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "formFields",
+          "params": [
+            "doc",
+            "fields",
+            "y"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "requestDataPdf",
+          "params": [
+            "pet"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "standardAuthorizationPdf",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "stayPdf",
+          "params": [
+            "pet",
+            "b",
+            "total",
+            "type"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "jspdf",
+          "specifiers": [
+            "jsPDF"
+          ]
+        },
+        {
+          "source": "../types",
+          "specifiers": [
+            "Budget",
+            "Pet",
+            "Vaccine"
+          ]
+        },
+        {
+          "source": "../domain/format",
+          "specifiers": [
+            "dateBR",
+            "localDate",
+            "money"
+          ]
+        },
+        {
+          "source": "../domain/budget",
+          "specifiers": [
+            "budgetPetIds",
+            "budgetPets",
+            "budgetValidUntil",
+            "guestName"
+          ]
+        },
+        {
+          "source": "./share",
+          "specifiers": [
+            "shareOrDownload"
+          ]
+        }
+      ],
+      "exports": [
+        "budgetPdf",
+        "vaccinePdf",
+        "termPdf",
+        "requestDataPdf",
+        "standardAuthorizationPdf",
+        "stayPdf"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/plural.ts": {
+      "filePath": "src/lib/plural.ts",
+      "contentHash": "6f86673a7b08fc52d907ca5db5a70b0a890aba221d3a68cb4c3702913ec013fb",
+      "functions": [
+        {
+          "name": "pl",
+          "params": [
+            "n",
+            "one",
+            "many"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "pl"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/share.ts": {
+      "filePath": "src/lib/share.ts",
+      "contentHash": "4f1c3b7d40ea4e52decd025afe5cd2d3a138a67f67b526a500be2c243c211a39",
+      "functions": [
+        {
+          "name": "shareOrDownload",
+          "params": [
+            "blob",
+            "filename",
+            "title",
+            "text"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "shareOrDownload"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/storage.ts": {
+      "filePath": "src/lib/storage.ts",
+      "contentHash": "e6b651b09a2a0b9bb622eb55dadb824f7a62ac7371a155e78043046283b38e07",
+      "functions": [
+        {
+          "name": "UP",
+          "params": [
+            "v"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "upPet",
+          "params": [
+            "p"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "normalize",
+          "params": [
+            "raw"
+          ],
+          "returnType": "AppData",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "loadData",
+          "params": [],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "saveData",
+          "params": [
+            "data"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "uid",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "backupFileName",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "backupJson",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parseBackup",
+          "params": [
+            "text"
+          ],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../types",
+          "specifiers": [
+            "AppData"
+          ]
+        },
+        {
+          "source": "../domain/budget",
+          "specifiers": [
+            "legacyTotal"
+          ]
+        }
+      ],
+      "exports": [
+        "loadData",
+        "saveData",
+        "uid",
+        "backupFileName",
+        "backupJson",
+        "parseBackup"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/trash.ts": {
+      "filePath": "src/lib/trash.ts",
+      "contentHash": "481689f9f28f29863cdfba252b1a996cd3c09fc7cb2dd7d27c4673f0a490ba40",
+      "functions": [
+        {
+          "name": "has",
+          "params": [
+            "arr",
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "trashedIds",
+          "params": [
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "visible",
+          "params": [
+            "d"
+          ],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unhide",
+          "params": [
+            "full",
+            "d"
+          ],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "purgePet",
+          "params": [
+            "d",
+            "id"
+          ],
+          "returnType": "AppData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "expired",
+          "params": [
+            "at"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "daysLeft",
+          "params": [
+            "at"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "lastBackup",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "markBackup",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "backupDue",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../types",
+          "specifiers": [
+            "AppData"
+          ]
+        }
+      ],
+      "exports": [
+        "TRASH_DAYS",
+        "visible",
+        "unhide",
+        "purgePet",
+        "expired",
+        "daysLeft",
+        "lastBackup",
+        "markBackup",
+        "backupDue"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/useCloudSync.ts": {
+      "filePath": "src/lib/useCloudSync.ts",
+      "contentHash": "7043bea39c038d63f6eee4d42508ceb7a6379aeba49c46b20c099a46c30abc27",
+      "functions": [
+        {
+          "name": "withTombstones",
+          "params": [
+            "prev",
+            "next"
+          ],
+          "returnType": "AppData",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "useCloudSync",
+          "params": [
+            "userId"
+          ],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "../types",
+          "specifiers": [
+            "AppData"
+          ]
+        },
+        {
+          "source": "./cloud",
+          "specifiers": [
+            "markDirty",
+            "mergeData",
+            "pullRemote",
+            "pushRemote",
+            "readMeta",
+            "reconcile",
+            "sameData",
+            "writeMeta"
+          ]
+        },
+        {
+          "source": "./storage",
+          "specifiers": [
+            "loadData",
+            "saveData"
+          ]
+        }
+      ],
+      "exports": [
+        "useCloudSync"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "src/main.tsx": {
+      "filePath": "src/main.tsx",
+      "contentHash": "20e494804e3cb6df75089a344ea7d8bf2fc9b110f2be6db940d682f5ddc7ae7e",
+      "functions": [
+        {
+          "name": "apply",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "banner",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Guard",
+          "methods": [
+            "getDerivedStateFromError",
+            "componentDidCatch",
+            "render"
+          ],
+          "properties": [
+            "state"
+          ],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "react-dom/client",
+          "specifiers": [
+            "ReactDOM"
+          ]
+        },
+        {
+          "source": "./App",
+          "specifiers": [
+            "App"
+          ]
+        },
+        {
+          "source": "./styles/app.css",
+          "specifiers": []
+        },
+        {
+          "source": "virtual:pwa-register",
+          "specifiers": [
+            "registerSW"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/navigation.ts": {
+      "filePath": "src/navigation.ts",
+      "contentHash": "cb166d7d05ac87bf1c1e35f83c72b22b119a7c0db4aecde5811be7abbf9d5c51",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "src/styles/app.css": {
+      "filePath": "src/styles/app.css",
+      "contentHash": "0b2626350877a9df5be6ac11b93150ba77758dfe87bbb9b7dfd21f9b3802296e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 711,
+      "hasStructuralAnalysis": false
+    },
+    "src/types.ts": {
+      "filePath": "src/types.ts",
+      "contentHash": "65d5846fb62f212a54733468e9da0bd0a89737e0a8229455b6e0b3da9d64f3b7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/ui/common.tsx": {
+      "filePath": "src/ui/common.tsx",
+      "contentHash": "296f61ae46c9be185e1b5ebe79fb5def1e0740696f8f214c24628bfbfcb7e7e7",
+      "functions": [
+        {
+          "name": "Splash",
+          "params": [
+            "{text='Preparando o cantinho dos Aumigos…'}"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "YesNoField",
+          "params": [
+            "{label,value,set}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Info",
+          "params": [
+            "{label,value}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Avatar",
+          "params": [
+            "{pet}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Title",
+          "params": [
+            "{title,sub,action,actionLabel}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Modal",
+          "params": [
+            "{children,close,title}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Field",
+          "params": [
+            "{label,value,set,inputMode}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Empty",
+          "params": [
+            "{text}"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "PawPrint",
+            "Plus",
+            "X"
+          ]
+        },
+        {
+          "source": "../types",
+          "specifiers": [
+            "Pet"
+          ]
+        }
+      ],
+      "exports": [
+        "Splash",
+        "YesNoField",
+        "Info",
+        "Avatar",
+        "Title",
+        "Modal",
+        "Field",
+        "Empty"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/vite-env.d.ts": {
+      "filePath": "src/vite-env.d.ts",
+      "contentHash": "00ffd27a93bbef481596cd2f9f8f0ab30707aad0b6d0b884501efd64a9f75f43",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.app.json": {
+      "filePath": "tsconfig.app.json",
+      "contentHash": "a7266d1c85fa6947c70073256d9a73e4c459e97b0b4ef24b5c48dcab498ef4c5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "e8d6f7b50828db3953e21c7e92584f9206b3cd2551b4012507372afbb7fe9ce3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.node.json": {
+      "filePath": "tsconfig.node.json",
+      "contentHash": "3dc28b63563e20fab0d9f652f3039ed50e6c46bbdec66631a14822e8309b230d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "vite.config.ts": {
+      "filePath": "vite.config.ts",
+      "contentHash": "46c0c0dcdb6e46140f2209086262c865ed58b87620c9088c2d8efc1cd6b77eeb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vite",
+          "specifiers": [
+            "defineConfig"
+          ]
+        },
+        {
+          "source": "@vitejs/plugin-react",
+          "specifiers": [
+            "react"
+          ]
+        },
+        {
+          "source": "vite-plugin-pwa",
+          "specifiers": [
+            "VitePWA"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

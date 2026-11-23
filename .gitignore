@@ -6,3 +6,6 @@ android/app/build
 *.log
 *.tsbuildinfo
 exemplo-orcamento.pdf
+.ua/intermediate/
+.ua/tmp/
+.ua/.trash-*
