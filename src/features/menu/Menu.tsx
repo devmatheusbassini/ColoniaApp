@@ -8,7 +8,7 @@ import type { AppData } from '../../types'
 import {  readMeta, supabase } from '../../lib/cloud'
 import { backupFileName, backupJson, parseBackup } from '../../lib/storage'
 import { purgePet, daysLeft, markBackup, lastBackup, backupDue } from '../../lib/trash'
-import {  requestDataPdf, standardAuthorizationPdf } from '../../lib/pdf'
+import {  requestDataPdf, standardAuthorizationPdf } from '../../lib/pdfLazy'
 import { money, localDate, dateBR } from '../../domain/format'
 import {  isBooked, balanceDue } from '../../domain/budget'
 

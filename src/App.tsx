@@ -13,6 +13,7 @@ import { Agenda } from './features/agenda/Agenda'
 import { Vaccines } from './features/vaccines/Vaccines'
 import { Menu, BackupReminder } from './features/menu/Menu'
 import { visible, unhide, purgePet, expired } from './lib/trash'
+import { loadPdf } from './lib/pdfLazy'
 
 const SPLASH_MIN_MS = 900
 
@@ -30,6 +31,7 @@ function MainApp({userId}:{userId:string}){
  useEffect(()=>{if(!ready)return;const old=full.pets.filter(p=>expired(p.trashedAt));if(old.length)setFull(old.reduce((d,p)=>purgePet(d,p.id),full))},[ready])
  const [tab,setTab]=useState<Tab>('inicio'),[splash,setSplash]=useState(true),[intent,setIntent]=useState<'pet'|'budget'|null>(null)
  useEffect(()=>{const t=setTimeout(()=>setSplash(false),SPLASH_MIN_MS);return()=>clearTimeout(t)},[])
+ useEffect(()=>{if(!ready)return;const t=setTimeout(()=>{loadPdf().catch(()=>{})},3000);return()=>clearTimeout(t)},[ready])
  const go:Go=(t,i=null)=>{setIntent(i);setTab(t)}
  const clearIntent=()=>setIntent(null)
  if(splash||!ready)return <Splash text={!ready&&!splash?'Sincronizando seus dados…':undefined}/>

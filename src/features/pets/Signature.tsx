@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import {  Check, Download } from 'lucide-react'
 import type {  Pet } from '../../types'
 
-import {  termPdf } from '../../lib/pdf'
+import {  termPdf } from '../../lib/pdfLazy'
 
 import {  Modal } from '../../ui/common'
 

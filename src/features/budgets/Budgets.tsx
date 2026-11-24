@@ -3,7 +3,7 @@ import {  CalendarDays, Check, Clock3, Download, Edit3, Minus, PawPrint, Plus, S
 import type { AppData, Budget, Pet, PetSpecies, QuoteItem, ServiceItem } from '../../types'
 
 import {  uid } from '../../lib/storage'
-import { budgetPdf, stayPdf } from '../../lib/pdf'
+import { budgetPdf, stayPdf } from '../../lib/pdfLazy'
 import { money, dateKey, localDate, dateBR, dateToUtc, daysBetween, parseMoney } from '../../domain/format'
 import { budgetDays, totalBudget, autoExtra, detectSeason, extraRate, quoteForPet, quickLabel, amountPaid, balanceDue, guestName, validUntilFrom, joinNames, speciesCount, speciesName } from '../../domain/budget'
 import { phoneMask, emptyTerm, findDuplicatePet } from '../../domain/pet'

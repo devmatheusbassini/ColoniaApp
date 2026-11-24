@@ -4,7 +4,7 @@ import { Phone, AlertTriangle, Check, Edit3, MapPin, PawPrint, Search, Sparkles,
 import type { AppData, Pet, PetSpecies } from '../../types'
 
 import {  uid } from '../../lib/storage'
-import {  termPdf } from '../../lib/pdf'
+import {  termPdf } from '../../lib/pdfLazy'
 
 import { phoneMask, cpfMask, rgMask, PetForm, emptyTerm, blankPet, temperamentOptions, dogBreeds, catBreeds, calculateAge, findDuplicatePet, upper, Addr, blankAddr, UFS, cepMask, formatAddr } from '../../domain/pet'
 import {  YesNoField, Avatar, Title, Modal, Field, Empty } from '../../ui/common'

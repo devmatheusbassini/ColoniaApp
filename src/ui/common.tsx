@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import {  PawPrint, Plus, X } from 'lucide-react'
 import type {  Pet } from '../types'
@@ -12,6 +12,14 @@ export function YesNoField({label,value,set}:{label:string,value:'Sim'|'Não'|''
 export function Info({label,value}:{label:string,value?:string}){return <div className="infoItem"><span>{label}</span><b>{value||'Não informado'}</b></div>}
 export function Avatar({pet}:{pet?:Pet}){return <div className={'avatar'+(pet?.deceasedAt?' deceased':'')}>{pet?.photo?<img src={pet.photo}/>:<PawPrint/>}</div>}
 export function Title({title,sub,action,actionLabel}:{title:string,sub:string,action?:()=>void,actionLabel?:string}){return <div className="title"><div><h1>{title}</h1><p>{sub}</p></div>{action&&<button className="newButton" onClick={action}><Plus/>{actionLabel}</button>}</div>}
-export function Modal({children,close,title}:{children:React.ReactNode,close:()=>void,title:string}){return <div className="overlay" onMouseDown={e=>e.target===e.currentTarget&&close()}><div className="modal"><div className="modalHead"><h2>{title}</h2><button className="icon" onClick={close}><X/></button></div>{children}</div></div>}
+// Se algo foi digitado ou marcado, pede confirmação antes de fechar (toque fora ou no X), para não perder o cadastro.
+export function Modal({children,close,title}:{children:React.ReactNode,close:()=>void,title:string}){
+ const dirty=useRef(false)
+ const mine=(e:React.SyntheticEvent)=>(e.target as HTMLElement).closest('.modal')===e.currentTarget
+ const touch=(e:React.SyntheticEvent)=>{if(mine(e))dirty.current=true}
+ const ask=()=>{if(!dirty.current||confirm('Descartar o que foi preenchido?'))close()}
+ const clicked=(e:React.MouseEvent)=>{if((e.target as HTMLElement).closest('form button[type=button]'))touch(e)}
+ return <div className="overlay" onMouseDown={e=>e.target===e.currentTarget&&ask()}><div className="modal" onInputCapture={touch} onChangeCapture={touch} onClickCapture={clicked} onPointerDownCapture={e=>(e.target as HTMLElement).tagName==='CANVAS'&&touch(e)}><div className="modalHead"><h2>{title}</h2><button className="icon" onClick={ask}><X/></button></div>{children}</div></div>
+}
 export function Field({label,value,set,inputMode}:{label:string,value:string,set:(v:string)=>void,inputMode?:React.HTMLAttributes<HTMLInputElement>['inputMode']}){return <label>{label}<input value={value} inputMode={inputMode} onChange={e=>set(e.target.value)}/></label>}
 export function Empty({text}:{text:string}){return <div className="empty"><PawPrint/><p>{text}</p></div>}
