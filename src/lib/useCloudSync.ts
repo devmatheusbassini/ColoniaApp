@@ -8,12 +8,22 @@ export type SyncStatus = 'sincronizado' | 'enviando' | 'offline' | 'erro'
 const PUSH_DELAY_MS = 1200, POLL_MS = 5000
 const KEYS = ['pets', 'vaccines', 'budgets', 'incidents'] as const
 
-// Registra como excluído só o que sumiu por ação no próprio aparelho.
-function withTombstones(prev: AppData, next: AppData): AppData {
- const ids = new Set<string>(); for (const k of KEYS) for (const x of (next as any)[k]) ids.add(x.id)
- const now = new Date().toISOString(), gone: Record<string, string> = {}
- for (const k of KEYS) for (const x of (prev as any)[k]) if (!ids.has(x.id)) gone[x.id] = now
- return Object.keys(gone).length ? { ...next, deleted: { ...(next.deleted || {}), ...gone } } : next
+// Aplica só o que a tela mudou em relação ao que ela via (base), por cima do estado mais recente (prev).
+// Assim, o que chegou da nuvem enquanto a tela estava aberta não é sobrescrito nem marcado como excluído.
+export function applyChange(prev: AppData, base: AppData, next: AppData): AppData {
+ const now = new Date().toISOString(), gone: Record<string, string> = {}, out: any = {}
+ for (const k of KEYS) {
+  const before = new Map<string, any>(((base as any)[k] || []).map((x: any) => [x.id, x]))
+  const after = new Map<string, any>(((next as any)[k] || []).map((x: any) => [x.id, x]))
+  for (const id of before.keys()) if (!after.has(id)) gone[id] = now
+  const changed = [...after.values()].filter(x => !before.has(x.id) || JSON.stringify(before.get(x.id)) !== JSON.stringify(x))
+  const byId = new Map<string, any>(changed.map(x => [x.id, x]))
+  const kept = ((prev as any)[k] || []).filter((x: any) => !gone[x.id])
+  const keptIds = new Set(kept.map((x: any) => x.id))
+  out[k] = [...kept.map((x: any) => byId.get(x.id) || x), ...changed.filter(x => !keptIds.has(x.id))]
+ }
+ out.deleted = { ...(prev.deleted || {}), ...(next.deleted || {}), ...gone }
+ return out as AppData
 }
 
 export function useCloudSync(userId: string) {
@@ -23,7 +33,7 @@ export function useCloudSync(userId: string) {
  const fromCloud = useRef(true), pushTimer = useRef<number | undefined>(undefined), latest = useRef(data), saveWarned = useRef(false), busy = useRef(false)
  latest.current = data
 
- const setData = (d: AppData) => setRaw(prev => withTombstones(prev, d))
+ const setData = (d: AppData) => { const base = latest.current; setRaw(prev => applyChange(prev, base, d)) }
  const applyCloud = (d: AppData) => { if (sameData(d, latest.current)) return; fromCloud.current = true; setRaw(d) }
 
  const push = async () => {
