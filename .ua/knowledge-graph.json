@@ -1,0 +1,3106 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "colonia-de-ferias-tia-ci",
+    "languages": [
+      "config",
+      "css",
+      "html",
+      "json",
+      "markdown",
+      "typescript"
+    ],
+    "frameworks": [
+      "React",
+      "Vite",
+      "Vite PWA",
+      "Supabase",
+      "Capacitor"
+    ],
+    "description": "PWA de gestão da Colônia de Férias da Tia Cí (hotel para pets): cadastro de pets e tutores, agenda, orçamentos, vacinas, PDFs e sincronização com Supabase.",
+    "analyzedAt": "2026-11-21T13:17:37.139Z",
+    "gitCommitHash": "7671708dffae2ff19b501ddbf09f45aa73aa18b6"
+  },
+  "nodes": [
+    {
+      "id": "file:src/App.tsx",
+      "type": "file",
+      "name": "App.tsx",
+      "filePath": "src/App.tsx",
+      "summary": "Componente raiz que gerencia login, sincronização com a nuvem e navegação entre as telas principais (agenda, clientes, orçamentos, vacinas, menu).",
+      "tags": [
+        "entry-point",
+        "component",
+        "navegacao",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/App.tsx:App",
+      "type": "function",
+      "name": "App",
+      "filePath": "src/App.tsx",
+      "lineRange": [
+        19,
+        25
+      ],
+      "summary": "Componente raiz que decide entre a tela de login e o app principal conforme a sessão.",
+      "tags": [
+        "component",
+        "autenticacao",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/App.tsx:MainApp",
+      "type": "function",
+      "name": "MainApp",
+      "filePath": "src/App.tsx",
+      "lineRange": [
+        27,
+        39
+      ],
+      "summary": "Shell principal do app que usa useCloudSync e renderiza a aba ativa.",
+      "tags": [
+        "component",
+        "navegacao",
+        "layout"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/auth/Login.tsx",
+      "type": "file",
+      "name": "Login.tsx",
+      "filePath": "src/features/auth/Login.tsx",
+      "summary": "Tela de login que autentica o usuário via Supabase.",
+      "tags": [
+        "component",
+        "autenticacao",
+        "supabase"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/auth/Login.tsx:Login",
+      "type": "function",
+      "name": "Login",
+      "filePath": "src/features/auth/Login.tsx",
+      "lineRange": [
+        6,
+        11
+      ],
+      "summary": "Formulário de login que chama a autenticação do Supabase.",
+      "tags": [
+        "component",
+        "autenticacao",
+        "form"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/menu/Menu.tsx",
+      "type": "file",
+      "name": "Menu.tsx",
+      "filePath": "src/features/menu/Menu.tsx",
+      "summary": "Tela de menu com backup/restauração, status da nuvem, resumo financeiro, lembrete de backup e lixeira de registros.",
+      "tags": [
+        "component",
+        "backup",
+        "financeiro",
+        "lixeira"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:Menu",
+      "type": "function",
+      "name": "Menu",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        17,
+        17
+      ],
+      "summary": "Componente do menu que agrega as seções de configuração.",
+      "tags": [
+        "component",
+        "menu",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:Backup",
+      "type": "function",
+      "name": "Backup",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        18,
+        24
+      ],
+      "summary": "Seção de exportação e importação de backup JSON.",
+      "tags": [
+        "component",
+        "menu",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:CloudStatus",
+      "type": "function",
+      "name": "CloudStatus",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        25,
+        25
+      ],
+      "summary": "Exibe o estado da sincronização com a nuvem.",
+      "tags": [
+        "component",
+        "menu",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:Finance",
+      "type": "function",
+      "name": "Finance",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        26,
+        37
+      ],
+      "summary": "Resumo financeiro de orçamentos, valores pagos e saldos.",
+      "tags": [
+        "component",
+        "menu",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:BackupReminder",
+      "type": "function",
+      "name": "BackupReminder",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        39,
+        39
+      ],
+      "summary": "Aviso para lembrar o usuário de fazer backup.",
+      "tags": [
+        "component",
+        "menu",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/menu/Menu.tsx:Trash",
+      "type": "function",
+      "name": "Trash",
+      "filePath": "src/features/menu/Menu.tsx",
+      "lineRange": [
+        40,
+        54
+      ],
+      "summary": "Lixeira que lista itens excluídos, permitindo restaurar ou apagar definitivamente.",
+      "tags": [
+        "component",
+        "lixeira",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/cloud.ts",
+      "type": "file",
+      "name": "cloud.ts",
+      "filePath": "src/lib/cloud.ts",
+      "summary": "Cliente Supabase e lógica de sincronização: metadados locais, pull/push remoto, mesclagem e reconciliação de dados.",
+      "tags": [
+        "service",
+        "supabase",
+        "sincronizacao",
+        "cloud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/cloud.ts:pullRemote",
+      "type": "function",
+      "name": "pullRemote",
+      "filePath": "src/lib/cloud.ts",
+      "lineRange": [
+        19,
+        24
+      ],
+      "summary": "Baixa os dados remotos do Supabase.",
+      "tags": [
+        "sincronizacao",
+        "supabase",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/cloud.ts:mergeData",
+      "type": "function",
+      "name": "mergeData",
+      "filePath": "src/lib/cloud.ts",
+      "lineRange": [
+        28,
+        38
+      ],
+      "summary": "Mescla dados locais e remotos por registro.",
+      "tags": [
+        "sincronizacao",
+        "merge",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/cloud.ts:pushRemote",
+      "type": "function",
+      "name": "pushRemote",
+      "filePath": "src/lib/cloud.ts",
+      "lineRange": [
+        43,
+        51
+      ],
+      "summary": "Envia os dados locais ao Supabase.",
+      "tags": [
+        "sincronizacao",
+        "supabase",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/cloud.ts:reconcile",
+      "type": "function",
+      "name": "reconcile",
+      "filePath": "src/lib/cloud.ts",
+      "lineRange": [
+        55,
+        62
+      ],
+      "summary": "Reconcilia estado local e remoto decidindo entre pull, push ou mesclagem.",
+      "tags": [
+        "sincronizacao",
+        "merge",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/share.ts",
+      "type": "file",
+      "name": "share.ts",
+      "filePath": "src/lib/share.ts",
+      "summary": "Utilitário que compartilha um arquivo via Web Share API ou faz download como fallback.",
+      "tags": [
+        "utility",
+        "compartilhamento",
+        "pwa"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/share.ts:shareOrDownload",
+      "type": "function",
+      "name": "shareOrDownload",
+      "filePath": "src/lib/share.ts",
+      "lineRange": [
+        1,
+        5
+      ],
+      "summary": "Compartilha o arquivo pela Web Share API ou dispara download.",
+      "tags": [
+        "utility",
+        "compartilhamento",
+        "download"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/storage.ts",
+      "type": "file",
+      "name": "storage.ts",
+      "filePath": "src/lib/storage.ts",
+      "summary": "Persistência local em localStorage: carga/normalização/migração de dados, geração de IDs e backup JSON.",
+      "tags": [
+        "storage",
+        "persistencia",
+        "backup",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/storage.ts:loadData",
+      "type": "function",
+      "name": "loadData",
+      "filePath": "src/lib/storage.ts",
+      "lineRange": [
+        10,
+        10
+      ],
+      "summary": "Carrega e normaliza os dados do localStorage.",
+      "tags": [
+        "storage",
+        "utility",
+        "persistencia"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/storage.ts:saveData",
+      "type": "function",
+      "name": "saveData",
+      "filePath": "src/lib/storage.ts",
+      "lineRange": [
+        12,
+        12
+      ],
+      "summary": "Salva os dados no localStorage.",
+      "tags": [
+        "storage",
+        "utility",
+        "persistencia"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/storage.ts:uid",
+      "type": "function",
+      "name": "uid",
+      "filePath": "src/lib/storage.ts",
+      "lineRange": [
+        14,
+        14
+      ],
+      "summary": "Gera identificador único.",
+      "tags": [
+        "storage",
+        "utility",
+        "persistencia"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/storage.ts:backupJson",
+      "type": "function",
+      "name": "backupJson",
+      "filePath": "src/lib/storage.ts",
+      "lineRange": [
+        20,
+        20
+      ],
+      "summary": "Serializa os dados para backup JSON.",
+      "tags": [
+        "storage",
+        "utility",
+        "persistencia"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/storage.ts:parseBackup",
+      "type": "function",
+      "name": "parseBackup",
+      "filePath": "src/lib/storage.ts",
+      "lineRange": [
+        22,
+        22
+      ],
+      "summary": "Valida e normaliza um backup importado.",
+      "tags": [
+        "storage",
+        "utility",
+        "persistencia"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/trash.ts",
+      "type": "file",
+      "name": "trash.ts",
+      "filePath": "src/lib/trash.ts",
+      "summary": "Lógica de lixeira com exclusão lógica, expiração em dias, restauração e controle de lembrete de backup.",
+      "tags": [
+        "utility",
+        "lixeira",
+        "soft-delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/trash.ts:visible",
+      "type": "function",
+      "name": "visible",
+      "filePath": "src/lib/trash.ts",
+      "lineRange": [
+        6,
+        6
+      ],
+      "summary": "Filtra registros não excluídos.",
+      "tags": [
+        "lixeira",
+        "utility",
+        "soft-delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/trash.ts:unhide",
+      "type": "function",
+      "name": "unhide",
+      "filePath": "src/lib/trash.ts",
+      "lineRange": [
+        8,
+        11
+      ],
+      "summary": "Restaura itens da lixeira.",
+      "tags": [
+        "lixeira",
+        "utility",
+        "soft-delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/trash.ts:purgePet",
+      "type": "function",
+      "name": "purgePet",
+      "filePath": "src/lib/trash.ts",
+      "lineRange": [
+        12,
+        12
+      ],
+      "summary": "Remove definitivamente um pet e dados relacionados.",
+      "tags": [
+        "lixeira",
+        "utility",
+        "soft-delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/trash.ts:backupDue",
+      "type": "function",
+      "name": "backupDue",
+      "filePath": "src/lib/trash.ts",
+      "lineRange": [
+        18,
+        18
+      ],
+      "summary": "Indica se é hora de lembrar o backup.",
+      "tags": [
+        "lixeira",
+        "utility",
+        "soft-delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/useCloudSync.ts",
+      "type": "file",
+      "name": "useCloudSync.ts",
+      "filePath": "src/lib/useCloudSync.ts",
+      "summary": "Hook React que mantém os dados sincronizados entre localStorage e Supabase, tratando tombstones de exclusão.",
+      "tags": [
+        "hook",
+        "sincronizacao",
+        "supabase",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "type": "function",
+      "name": "useCloudSync",
+      "filePath": "src/lib/useCloudSync.ts",
+      "lineRange": [
+        19,
+        71
+      ],
+      "summary": "Hook que carrega, salva e reconcilia dados com a nuvem periodicamente e em eventos.",
+      "tags": [
+        "hook",
+        "sincronizacao",
+        "state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/useCloudSync.ts:withTombstones",
+      "type": "function",
+      "name": "withTombstones",
+      "filePath": "src/lib/useCloudSync.ts",
+      "lineRange": [
+        12,
+        17
+      ],
+      "summary": "Aplica marcas de exclusão (tombstones) aos dados antes da sincronização.",
+      "tags": [
+        "sincronizacao",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main.tsx",
+      "type": "file",
+      "name": "main.tsx",
+      "filePath": "src/main.tsx",
+      "summary": "Ponto de entrada do Vite que monta o App React, importa estilos e trata atualização do service worker.",
+      "tags": [
+        "entry-point",
+        "bootstrap",
+        "pwa",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/domain/budget.ts",
+      "type": "file",
+      "name": "budget.ts",
+      "filePath": "src/domain/budget.ts",
+      "summary": "Regras de negócio de orçamentos: tarifas por espécie e temporada, cálculo de totais, extras, validade, pagamentos e status de reserva.",
+      "tags": [
+        "domain-logic",
+        "utility",
+        "orcamento",
+        "calculo"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/domain/format.ts",
+      "type": "file",
+      "name": "format.ts",
+      "filePath": "src/domain/format.ts",
+      "summary": "Funções utilitárias de formatação de moeda e datas no padrão brasileiro, além de cálculo de dias e parsing de valores.",
+      "tags": [
+        "utility",
+        "formatting",
+        "datas",
+        "moeda"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/agenda/Agenda.tsx",
+      "type": "file",
+      "name": "Agenda.tsx",
+      "filePath": "src/features/agenda/Agenda.tsx",
+      "summary": "Tela de agenda que lista, por dia, os hóspedes (pets) com reservas confirmadas.",
+      "tags": [
+        "component",
+        "agenda",
+        "feature",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/budgets/Budgets.tsx",
+      "type": "file",
+      "name": "Budgets.tsx",
+      "filePath": "src/features/budgets/Budgets.tsx",
+      "summary": "Tela de gestão de orçamentos com listagem, criação e seleção de pets, além de geração de PDF.",
+      "tags": [
+        "component",
+        "feature",
+        "orcamento",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/pets/PetDetails.tsx",
+      "type": "file",
+      "name": "PetDetails.tsx",
+      "filePath": "src/features/pets/PetDetails.tsx",
+      "summary": "Componente de detalhes do pet que exibe dados, histórico de orçamentos e ações de geração de documentos em PDF.",
+      "tags": [
+        "component",
+        "feature",
+        "pets",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/pdf.ts",
+      "type": "file",
+      "name": "pdf.ts",
+      "filePath": "src/lib/pdf.ts",
+      "summary": "Geração de documentos PDF: orçamento, vacinas, termos, autorização padrão, solicitação de dados e estadia, com compartilhamento.",
+      "tags": [
+        "service",
+        "pdf",
+        "documentos",
+        "export"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/agenda/Agenda.tsx:Agenda",
+      "type": "function",
+      "name": "Agenda",
+      "filePath": "src/features/agenda/Agenda.tsx",
+      "lineRange": [
+        11,
+        24
+      ],
+      "summary": "Componente principal da agenda que agrupa reservas por dia.",
+      "tags": [
+        "component",
+        "agenda",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/budgets/Budgets.tsx:Budgets",
+      "type": "function",
+      "name": "Budgets",
+      "filePath": "src/features/budgets/Budgets.tsx",
+      "lineRange": [
+        13,
+        39
+      ],
+      "summary": "Componente principal da tela de orçamentos.",
+      "tags": [
+        "component",
+        "orcamento",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/budgets/Budgets.tsx:PetPicker",
+      "type": "function",
+      "name": "PetPicker",
+      "filePath": "src/features/budgets/Budgets.tsx",
+      "lineRange": [
+        43,
+        54
+      ],
+      "summary": "Seletor de pets usado ao montar um orçamento.",
+      "tags": [
+        "component",
+        "selector",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/pdf.ts:budgetPdf",
+      "type": "function",
+      "name": "budgetPdf",
+      "filePath": "src/lib/pdf.ts",
+      "lineRange": [
+        15,
+        56
+      ],
+      "summary": "Gera o PDF de orçamento com pets, diárias, extras e totais.",
+      "tags": [
+        "pdf",
+        "orcamento",
+        "export"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/domain/pet.ts",
+      "type": "file",
+      "name": "pet.ts",
+      "filePath": "src/domain/pet.ts",
+      "summary": "Regras de domínio de pets: máscaras de CPF/RG/telefone/CEP, raças, temperamentos, cálculo de idade e detecção de pets duplicados.",
+      "tags": [
+        "utility",
+        "domain",
+        "validation",
+        "formatting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/pets/Clients.tsx",
+      "type": "file",
+      "name": "Clients.tsx",
+      "filePath": "src/features/pets/Clients.tsx",
+      "summary": "Tela de clientes/tutores com listagem de pets, seletor de tutor, campo de endereço, seletor de raça e confirmação de exclusão.",
+      "tags": [
+        "component",
+        "react",
+        "pets",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/pets/ImageCrop.tsx",
+      "type": "file",
+      "name": "ImageCrop.tsx",
+      "filePath": "src/features/pets/ImageCrop.tsx",
+      "summary": "Componente React de recorte de imagem em canvas para fotos de pets, com ajuste, limitação e desenho do recorte.",
+      "tags": [
+        "component",
+        "image",
+        "canvas",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/pets/Signature.tsx",
+      "type": "file",
+      "name": "Signature.tsx",
+      "filePath": "src/features/pets/Signature.tsx",
+      "summary": "Componente de captura de assinatura do tutor usado em termos de responsabilidade gerados em PDF.",
+      "tags": [
+        "component",
+        "signature",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "src/types.ts",
+      "summary": "Definições centrais de tipos TypeScript do domínio (pets, tutores, hospedagens, endereços) compartilhadas por toda a aplicação.",
+      "tags": [
+        "type-definition",
+        "data-model",
+        "typescript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/ui/common.tsx",
+      "type": "file",
+      "name": "common.tsx",
+      "filePath": "src/ui/common.tsx",
+      "summary": "Componentes de UI reutilizáveis: Splash, Modal, Field, Avatar, Title, Info, Empty e campo Sim/Não.",
+      "tags": [
+        "component",
+        "ui",
+        "shared",
+        "react"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:calculateAge",
+      "type": "function",
+      "name": "calculateAge",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        13,
+        13
+      ],
+      "summary": "Calcula a idade do pet a partir da data de nascimento.",
+      "tags": [
+        "utility",
+        "date"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:findDuplicatePet",
+      "type": "function",
+      "name": "findDuplicatePet",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        15,
+        15
+      ],
+      "summary": "Procura pet duplicado comparando nome e documento do tutor normalizados.",
+      "tags": [
+        "utility",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:formatAddr",
+      "type": "function",
+      "name": "formatAddr",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        21,
+        21
+      ],
+      "summary": "Formata um endereço estruturado em texto legível.",
+      "tags": [
+        "utility",
+        "formatting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:cpfMask",
+      "type": "function",
+      "name": "cpfMask",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        4,
+        4
+      ],
+      "summary": "Aplica máscara de CPF.",
+      "tags": [
+        "utility",
+        "mask"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:phoneMask",
+      "type": "function",
+      "name": "phoneMask",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        6,
+        6
+      ],
+      "summary": "Aplica máscara de telefone.",
+      "tags": [
+        "utility",
+        "mask"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/domain/pet.ts:cepMask",
+      "type": "function",
+      "name": "cepMask",
+      "filePath": "src/domain/pet.ts",
+      "lineRange": [
+        20,
+        20
+      ],
+      "summary": "Aplica máscara de CEP.",
+      "tags": [
+        "utility",
+        "mask"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:Clients",
+      "type": "function",
+      "name": "Clients",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        16,
+        35
+      ],
+      "summary": "Componente principal da tela de clientes, listando e gerenciando pets e tutores.",
+      "tags": [
+        "component",
+        "page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:TutorPicker",
+      "type": "function",
+      "name": "TutorPicker",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        40,
+        46
+      ],
+      "summary": "Seletor para reaproveitar dados de um tutor já cadastrado.",
+      "tags": [
+        "component",
+        "picker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:AddressField",
+      "type": "function",
+      "name": "AddressField",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "Campo de formulário de endereço com máscara de CEP e UF.",
+      "tags": [
+        "component",
+        "form"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:BreedPicker",
+      "type": "function",
+      "name": "BreedPicker",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        58,
+        62
+      ],
+      "summary": "Seletor de raça de cães/gatos com busca.",
+      "tags": [
+        "component",
+        "picker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:ConfirmDelete",
+      "type": "function",
+      "name": "ConfirmDelete",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        63,
+        63
+      ],
+      "summary": "Modal de confirmação de exclusão.",
+      "tags": [
+        "component",
+        "modal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:tutorOf",
+      "type": "function",
+      "name": "tutorOf",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        37,
+        37
+      ],
+      "summary": "Extrai os campos de tutor de um pet.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/Clients.tsx:sameTutor",
+      "type": "function",
+      "name": "sameTutor",
+      "filePath": "src/features/pets/Clients.tsx",
+      "lineRange": [
+        38,
+        38
+      ],
+      "summary": "Compara se dois registros têm o mesmo tutor.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/pets/ImageCrop.tsx:ImageCrop",
+      "type": "function",
+      "name": "ImageCrop",
+      "filePath": "src/features/pets/ImageCrop.tsx",
+      "lineRange": [
+        29,
+        59
+      ],
+      "summary": "Componente de recorte interativo de foto com arrastar/zoom em canvas.",
+      "tags": [
+        "component",
+        "image"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/features/pets/Signature.tsx:Signature",
+      "type": "function",
+      "name": "Signature",
+      "filePath": "src/features/pets/Signature.tsx",
+      "lineRange": [
+        9,
+        9
+      ],
+      "summary": "Componente de assinatura digital do tutor.",
+      "tags": [
+        "component",
+        "signature"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Splash",
+      "type": "function",
+      "name": "Splash",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        6,
+        10
+      ],
+      "summary": "Tela de carregamento inicial.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Modal",
+      "type": "function",
+      "name": "Modal",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        15,
+        15
+      ],
+      "summary": "Componente de UI compartilhado Modal.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Field",
+      "type": "function",
+      "name": "Field",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        16,
+        16
+      ],
+      "summary": "Componente de UI compartilhado Field.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Avatar",
+      "type": "function",
+      "name": "Avatar",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        13,
+        13
+      ],
+      "summary": "Componente de UI compartilhado Avatar.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Title",
+      "type": "function",
+      "name": "Title",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        14,
+        14
+      ],
+      "summary": "Componente de UI compartilhado Title.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Info",
+      "type": "function",
+      "name": "Info",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        12,
+        12
+      ],
+      "summary": "Componente de UI compartilhado Info.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:Empty",
+      "type": "function",
+      "name": "Empty",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        17,
+        17
+      ],
+      "summary": "Componente de UI compartilhado Empty.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ui/common.tsx:YesNoField",
+      "type": "function",
+      "name": "YesNoField",
+      "filePath": "src/ui/common.tsx",
+      "lineRange": [
+        11,
+        11
+      ],
+      "summary": "Componente de UI compartilhado YesNoField.",
+      "tags": [
+        "component",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/features/home/Dashboard.tsx",
+      "type": "file",
+      "name": "Dashboard.tsx",
+      "filePath": "src/features/home/Dashboard.tsx",
+      "summary": "Componente React da tela inicial que exibe um painel resumido com indicadores de orçamentos, reservas e atalhos de navegação.",
+      "tags": [
+        "component",
+        "dashboard",
+        "react",
+        "tela-inicial"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/features/home/Dashboard.tsx:Dashboard",
+      "type": "function",
+      "name": "Dashboard",
+      "filePath": "src/features/home/Dashboard.tsx",
+      "lineRange": [
+        12,
+        26
+      ],
+      "summary": "Renderiza o painel inicial com métricas calculadas a partir dos dados do app e botões que navegam para outras abas.",
+      "tags": [
+        "component",
+        "dashboard",
+        "react"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/features/vaccines/Vaccines.tsx",
+      "type": "file",
+      "name": "Vaccines.tsx",
+      "filePath": "src/features/vaccines/Vaccines.tsx",
+      "summary": "Tela de vacinação dos pets: cadastra vacinas com comprovante, alerta vencimentos para próximas entradas e gera PDF da carteirinha.",
+      "tags": [
+        "component",
+        "vacinas",
+        "react",
+        "pdf"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Código bastante compactado em uma única linha JSX, com handlers inline e leitura de arquivo via FileReader."
+    },
+    {
+      "id": "function:src/features/vaccines/Vaccines.tsx:Vaccines",
+      "type": "function",
+      "name": "Vaccines",
+      "filePath": "src/features/vaccines/Vaccines.tsx",
+      "lineRange": [
+        12,
+        12
+      ],
+      "summary": "Componente que gerencia o formulário modal de vacinas, upload do comprovante em data URL e contagem de vacinas vencidas ou a vencer.",
+      "tags": [
+        "component",
+        "formulario",
+        "vacinas"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/lib/plural.ts",
+      "type": "file",
+      "name": "plural.ts",
+      "filePath": "src/lib/plural.ts",
+      "summary": "Helper de pluralização que formata um número com a forma singular ou plural da palavra.",
+      "tags": [
+        "utility",
+        "formatacao",
+        "texto"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/plural.ts:pl",
+      "type": "function",
+      "name": "pl",
+      "filePath": "src/lib/plural.ts",
+      "lineRange": [
+        1,
+        1
+      ],
+      "summary": "Retorna \"n palavra\" escolhendo singular quando n é 1 e plural nos demais casos.",
+      "tags": [
+        "utility",
+        "formatacao",
+        "pluralizacao"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/navigation.ts",
+      "type": "file",
+      "name": "navigation.ts",
+      "filePath": "src/navigation.ts",
+      "summary": "Define os tipos de navegação do app: as abas disponíveis (Tab) e a assinatura da função Go com intenção opcional.",
+      "tags": [
+        "type-definition",
+        "navegacao",
+        "tipos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Documentação principal do projeto, com visão geral do PWA, instruções de instalação, execução e publicação.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "index.html",
+      "summary": "Página HTML de entrada do Vite com metadados PWA, ícones e tema, que carrega o bundle React em src/main.tsx.",
+      "tags": [
+        "entry-point",
+        "pwa",
+        "markup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Manifesto npm definindo scripts de dev/build/Android (Vite, tsc, Capacitor) e dependências como React 19, Supabase e jsPDF.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.app.json",
+      "type": "config",
+      "name": "tsconfig.app.json",
+      "filePath": "tsconfig.app.json",
+      "summary": "Configuração do compilador TypeScript para o código da aplicação em src, com JSX React e modo estrito.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Configuração raiz do TypeScript que referencia os projetos tsconfig.app e tsconfig.node.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "project-references"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.node.json",
+      "type": "config",
+      "name": "tsconfig.node.json",
+      "filePath": "tsconfig.node.json",
+      "summary": "Configuração TypeScript para arquivos executados em Node, como a configuração do Vite.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.env",
+      "type": "config",
+      "name": ".env",
+      "filePath": ".env",
+      "summary": "Arquivo de variáveis de ambiente usado em tempo de build/execução (conteúdo sensível não analisado).",
+      "tags": [
+        "configuration",
+        "environment",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".ua/config.json",
+      "summary": "Configuração do Understand Anything que define pt-BR como idioma de saída do grafo de conhecimento.",
+      "tags": [
+        "configuration",
+        "tooling",
+        "localizacao"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:capacitor.config.ts",
+      "type": "file",
+      "name": "capacitor.config.ts",
+      "filePath": "capacitor.config.ts",
+      "summary": "Configuração do Capacitor que empacota o build web (dist) como app Android com appId br.com.coloniatia.ci.",
+      "tags": [
+        "config",
+        "mobile",
+        "capacitor",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/refactor-log.md",
+      "type": "document",
+      "name": "refactor-log.md",
+      "filePath": "docs/refactor-log.md",
+      "summary": "Registro de decisões da refatoração v1.9.x, centralizando regras de orçamento em src/domain/budget.ts e eliminando lógica duplicada entre telas.",
+      "tags": [
+        "documentation",
+        "refactoring",
+        "decision-log"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/styles/app.css",
+      "type": "file",
+      "name": "app.css",
+      "filePath": "src/styles/app.css",
+      "summary": "Folha de estilos global da PWA com layout, componentes e temas visuais da aplicação.",
+      "tags": [
+        "styles",
+        "css",
+        "ui",
+        "global"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/vite-env.d.ts",
+      "type": "file",
+      "name": "vite-env.d.ts",
+      "filePath": "src/vite-env.d.ts",
+      "summary": "Declarações de tipos que referenciam os tipos do cliente Vite e do vite-plugin-pwa.",
+      "tags": [
+        "type-definition",
+        "vite",
+        "pwa"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:vite.config.ts",
+      "type": "file",
+      "name": "vite.config.ts",
+      "filePath": "vite.config.ts",
+      "summary": "Configuração do Vite com plugin React e VitePWA (registro por prompt, manifesto e ícones) para o build da PWA.",
+      "tags": [
+        "config",
+        "build-system",
+        "pwa",
+        "vite"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/App.tsx",
+      "target": "function:src/App.tsx:App",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "function:src/App.tsx:App",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "function:src/App.tsx:MainApp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/auth/Login.tsx",
+      "target": "function:src/features/auth/Login.tsx:Login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/auth/Login.tsx",
+      "target": "function:src/features/auth/Login.tsx:Login",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Menu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Menu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Backup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Backup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:CloudStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:CloudStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Finance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Finance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:BackupReminder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:BackupReminder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "function:src/features/menu/Menu.tsx:Trash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:pullRemote",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:pullRemote",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:mergeData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:mergeData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:pushRemote",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:pushRemote",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:reconcile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "function:src/lib/cloud.ts:reconcile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/share.ts",
+      "target": "function:src/lib/share.ts:shareOrDownload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/share.ts",
+      "target": "function:src/lib/share.ts:shareOrDownload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:loadData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:loadData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:saveData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:saveData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:uid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:uid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:backupJson",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:backupJson",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:parseBackup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "function:src/lib/storage.ts:parseBackup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:visible",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:visible",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:unhide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:unhide",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:purgePet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:purgePet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:backupDue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "function:src/lib/trash.ts:backupDue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "function:src/lib/useCloudSync.ts:withTombstones",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/agenda/Agenda.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/auth/Login.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/budgets/Budgets.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/home/Dashboard.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/menu/Menu.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/pets/Clients.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/features/vaccines/Vaccines.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/lib/cloud.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/lib/trash.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/lib/useCloudSync.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/navigation.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/App.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/auth/Login.tsx",
+      "target": "file:src/lib/cloud.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/cloud.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/share.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/trash.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/lib/useCloudSync.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/menu/Menu.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/cloud.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/storage.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/trash.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "file:src/lib/cloud.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/useCloudSync.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.tsx",
+      "target": "file:src/App.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/main.tsx",
+      "target": "file:src/styles/app.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "target": "function:src/lib/cloud.ts:reconcile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "target": "function:src/lib/storage.ts:saveData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/lib/cloud.ts:reconcile",
+      "target": "function:src/lib/cloud.ts:mergeData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/App.tsx:MainApp",
+      "target": "function:src/lib/useCloudSync.ts:useCloudSync",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "function:src/features/agenda/Agenda.tsx:Agenda",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "function:src/features/agenda/Agenda.tsx:Agenda",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "function:src/features/budgets/Budgets.tsx:Budgets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "function:src/features/budgets/Budgets.tsx:Budgets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "function:src/features/budgets/Budgets.tsx:PetPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "function:src/lib/pdf.ts:budgetPdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "function:src/lib/pdf.ts:budgetPdf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/budget.ts",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/domain/budget.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/agenda/Agenda.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/domain/pet.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/budgets/Budgets.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/PetDetails.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "file:src/lib/share.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/pdf.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:calculateAge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:calculateAge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:findDuplicatePet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:findDuplicatePet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:formatAddr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:formatAddr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:cpfMask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:cpfMask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:phoneMask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:phoneMask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:cepMask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "function:src/domain/pet.ts:cepMask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:Clients",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:Clients",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:TutorPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:TutorPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:AddressField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:AddressField",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:BreedPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:BreedPicker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:ConfirmDelete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:ConfirmDelete",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:tutorOf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:tutorOf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:sameTutor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "function:src/features/pets/Clients.tsx:sameTutor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/ImageCrop.tsx",
+      "target": "function:src/features/pets/ImageCrop.tsx:ImageCrop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/ImageCrop.tsx",
+      "target": "function:src/features/pets/ImageCrop.tsx:ImageCrop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/pets/Signature.tsx",
+      "target": "function:src/features/pets/Signature.tsx:Signature",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/pets/Signature.tsx",
+      "target": "function:src/features/pets/Signature.tsx:Signature",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Splash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Splash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Modal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Modal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Field",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Avatar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Avatar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Title",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Title",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:Empty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:YesNoField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "function:src/ui/common.tsx:YesNoField",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/domain/pet.ts",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/domain/pet.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/features/pets/ImageCrop.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/features/pets/PetDetails.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/features/pets/Signature.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Clients.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/ImageCrop.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Signature.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Signature.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/pets/Signature.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/ui/common.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "function:src/features/home/Dashboard.tsx:Dashboard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "function:src/features/home/Dashboard.tsx:Dashboard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "function:src/features/vaccines/Vaccines.tsx:Vaccines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "function:src/features/vaccines/Vaccines.tsx:Vaccines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/plural.ts",
+      "target": "function:src/lib/plural.ts:pl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/plural.ts",
+      "target": "function:src/lib/plural.ts:pl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/domain/budget.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/navigation.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/home/Dashboard.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/domain/format.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/lib/pdf.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/lib/plural.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/lib/storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/types.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/features/vaccines/Vaccines.tsx",
+      "target": "file:src/ui/common.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/features/home/Dashboard.tsx:Dashboard",
+      "target": "function:src/lib/plural.ts:pl",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/features/vaccines/Vaccines.tsx:Vaccines",
+      "target": "function:src/lib/plural.ts:pl",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:index.html",
+      "target": "file:src/main.tsx",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.app.json",
+      "target": "file:src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "config:tsconfig.app.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "config:tsconfig.node.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.env",
+      "target": "file:src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/styles/app.css",
+      "target": "file:src/main.tsx",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:app-shell",
+      "name": "Shell da Aplicação",
+      "description": "Ponto de entrada React, componente App, roteamento entre telas e tipos/estado globais do PWA.",
+      "nodeIds": [
+        "file:src/App.tsx",
+        "file:src/main.tsx",
+        "file:src/types.ts",
+        "file:src/navigation.ts",
+        "file:src/vite-env.d.ts"
+      ]
+    },
+    {
+      "id": "layer:features",
+      "name": "Funcionalidades",
+      "description": "Telas por funcionalidade (pets, agenda, orçamentos, vacinas, autenticação, menu e início) do hotel para pets.",
+      "nodeIds": [
+        "file:src/features/auth/Login.tsx",
+        "file:src/features/menu/Menu.tsx",
+        "file:src/features/agenda/Agenda.tsx",
+        "file:src/features/budgets/Budgets.tsx",
+        "file:src/features/pets/PetDetails.tsx",
+        "file:src/features/pets/Clients.tsx",
+        "file:src/features/pets/ImageCrop.tsx",
+        "file:src/features/pets/Signature.tsx",
+        "file:src/features/home/Dashboard.tsx",
+        "file:src/features/vaccines/Vaccines.tsx"
+      ]
+    },
+    {
+      "id": "layer:ui",
+      "name": "Componentes de UI e Estilos",
+      "description": "Componentes visuais compartilhados e folha de estilos global da aplicação.",
+      "nodeIds": [
+        "file:src/ui/common.tsx",
+        "file:src/styles/app.css"
+      ]
+    },
+    {
+      "id": "layer:domain",
+      "name": "Domínio",
+      "description": "Regras de negócio puras: cálculo de orçamentos, formatação e modelo de pet.",
+      "nodeIds": [
+        "file:src/domain/budget.ts",
+        "file:src/domain/format.ts",
+        "file:src/domain/pet.ts"
+      ]
+    },
+    {
+      "id": "layer:services",
+      "name": "Serviços e Persistência",
+      "description": "Armazenamento local, sincronização com Supabase, lixeira, geração de PDF e compartilhamento.",
+      "nodeIds": [
+        "file:src/lib/cloud.ts",
+        "file:src/lib/share.ts",
+        "file:src/lib/storage.ts",
+        "file:src/lib/trash.ts",
+        "file:src/lib/useCloudSync.ts",
+        "file:src/lib/pdf.ts",
+        "file:src/lib/plural.ts"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Configuração e Build",
+      "description": "Configurações de Vite, TypeScript, PWA, Capacitor, Cloudflare e dependências do projeto.",
+      "nodeIds": [
+        "file:index.html",
+        "config:package.json",
+        "config:tsconfig.app.json",
+        "config:tsconfig.json",
+        "config:tsconfig.node.json",
+        "config:.env",
+        "config:.ua/config.json",
+        "file:capacitor.config.ts",
+        "file:vite.config.ts"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentação",
+      "description": "Documentação do projeto e guias.",
+      "nodeIds": [
+        "document:README.md",
+        "document:docs/refactor-log.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Visão geral do projeto",
+      "description": "O README apresenta a PWA de gestão da colônia de férias para pets, com instruções de instalação, execução e build. Leia-o primeiro para entender o propósito do app antes de mergulhar no código.",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Build, PWA e Android",
+      "description": "O package.json define os scripts de dev/build e o empacotamento Android via Capacitor. O vite.config.ts configura o plugin React e o VitePWA (registro por prompt, manifesto e ícones), e o capacitor.config.ts transforma o build em app Android.",
+      "nodeIds": [
+        "config:package.json",
+        "file:vite.config.ts",
+        "file:capacitor.config.ts",
+        "config:tsconfig.app.json"
+      ],
+      "languageLesson": "Um PWA usa um service worker e um manifesto para ser instalável e funcionar offline; o Capacitor reaproveita o mesmo build web dentro de um app nativo."
+    },
+    {
+      "order": 3,
+      "title": "Ponto de entrada",
+      "description": "O index.html carrega o bundle, e o main.tsx monta o App React, importa os estilos globais e trata a atualização do service worker. É aqui que a aplicação ganha vida no navegador.",
+      "nodeIds": [
+        "file:index.html",
+        "file:src/main.tsx"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Shell e navegação",
+      "description": "O App.tsx é o componente raiz: controla login, sincronização com a nuvem e a troca entre telas. O navigation.ts define as abas (Tab) e a função de navegação compartilhada por todas as funcionalidades.",
+      "nodeIds": [
+        "file:src/App.tsx",
+        "file:src/navigation.ts",
+        "file:src/features/auth/Login.tsx"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Tipos do domínio",
+      "description": "O types.ts é o arquivo mais importado do projeto: define pets, tutores, hospedagens e endereços. Esse vocabulário comum conecta as telas, as regras de negócio e a persistência que veremos a seguir.",
+      "nodeIds": [
+        "file:src/types.ts"
+      ],
+      "languageLesson": "Centralizar interfaces TypeScript em um único módulo cria um contrato tipado entre camadas; o compilador acusa qualquer divergência."
+    },
+    {
+      "order": 6,
+      "title": "Regras de negócio",
+      "description": "A camada de domínio concentra lógica pura: orçamentos com tarifas por espécie e temporada, regras de pets (máscaras de CPF/telefone, raças) e formatação brasileira de moeda e datas. O refactor-log documenta a decisão de centralizar essas regras em src/domain.",
+      "nodeIds": [
+        "file:src/domain/budget.ts",
+        "file:src/domain/pet.ts",
+        "file:src/domain/format.ts",
+        "document:docs/refactor-log.md"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Persistência local",
+      "description": "O storage.ts guarda tudo em localStorage, com normalização, migração de dados e geração de IDs. O trash.ts adiciona exclusão lógica com expiração e restauração, permitindo desfazer remoções.",
+      "nodeIds": [
+        "file:src/lib/storage.ts",
+        "file:src/lib/trash.ts"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Sincronização com Supabase",
+      "description": "Sobre a persistência local, o cloud.ts implementa o cliente Supabase com pull/push e mesclagem de dados. O hook useCloudSync mantém localStorage e nuvem alinhados, tratando tombstones de itens excluídos.",
+      "nodeIds": [
+        "file:src/lib/cloud.ts",
+        "file:src/lib/useCloudSync.ts"
+      ],
+      "languageLesson": "Hooks customizados do React (useX) encapsulam efeitos colaterais e estado reutilizáveis, como uma rotina de sincronização."
+    },
+    {
+      "order": 9,
+      "title": "Componentes de UI e estilos",
+      "description": "O common.tsx reúne componentes reutilizáveis (Modal, Field, Avatar, Splash) usados por quase todas as telas, e o app.css define layout e temas globais. Conhecê-los facilita a leitura das funcionalidades.",
+      "nodeIds": [
+        "file:src/ui/common.tsx",
+        "file:src/styles/app.css",
+        "file:src/lib/plural.ts"
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Pets e clientes",
+      "description": "As telas de clientes e detalhes do pet usam os tipos e regras de domínio para cadastrar tutores e animais. Componentes de recorte de foto e captura de assinatura alimentam os termos de responsabilidade.",
+      "nodeIds": [
+        "file:src/features/pets/Clients.tsx",
+        "file:src/features/pets/PetDetails.tsx",
+        "file:src/features/pets/ImageCrop.tsx",
+        "file:src/features/pets/Signature.tsx"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Orçamentos, agenda e vacinas",
+      "description": "Budgets aplica as regras de budget.ts para criar orçamentos; Agenda lista hóspedes confirmados por dia; Vaccines controla vencimentos; o Dashboard resume indicadores na tela inicial.",
+      "nodeIds": [
+        "file:src/features/budgets/Budgets.tsx",
+        "file:src/features/agenda/Agenda.tsx",
+        "file:src/features/vaccines/Vaccines.tsx",
+        "file:src/features/home/Dashboard.tsx"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "PDFs, compartilhamento e backup",
+      "description": "O pdf.ts gera orçamentos, termos e autorizações, e o share.ts envia arquivos via Web Share API com download como fallback. O Menu fecha o ciclo com backup/restauração e status da nuvem.",
+      "nodeIds": [
+        "file:src/lib/pdf.ts",
+        "file:src/lib/share.ts",
+        "file:src/features/menu/Menu.tsx"
+      ]
+    }
+  ]
+}
