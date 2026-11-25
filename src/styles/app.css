@@ -583,9 +583,10 @@ nav button.active{box-shadow:0 8px 18px rgba(216,93,145,.3)}
 .cloudCard,.backupCard{background:#fff;border:1px solid #f3e1ea;border-radius:20px;padding:16px;margin-top:16px;box-shadow:0 4px 14px rgba(190,60,120,.05)}
 .cloudCard h3,.backupCard h3{display:flex;align-items:center;gap:8px;margin:0 0 6px}
 .cloudCard h3 svg,.backupCard h3 svg{width:20px;height:20px;color:#d6417f}
-.syncState{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 12px;color:#555}
+.syncState{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 4px;color:#555}
+.syncInfo{font-size:12px;color:#777;margin:0 0 12px}
 .syncState i{width:10px;height:10px;border-radius:50%;background:#1f9d5c;flex:none}
-.sync-enviando .syncState i{background:#d98a14}.sync-offline .syncState i{background:#8a8a8a}.sync-erro .syncState i{background:#d33b3b}.sync-erro .syncState{color:#b02a2a}
+.sync-enviando .syncState i{background:#d98a14}.sync-offline .syncState i{background:#8a8a8a}.sync-erro .syncState i{background:#8a8a8a}
 /* v1.8.7 Cadastro de hóspede */
 .petForm .formTabs{position:sticky;top:-1px;z-index:3;background:#fff;padding:6px 0 10px;display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px}
 .petForm .formTabs button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:14px!important}

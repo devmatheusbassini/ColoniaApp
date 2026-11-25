@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CalendarDays, CircleDollarSign, Home, PawPrint, Sparkles, Syringe, Users } from 'lucide-react'
-import type { Session } from '@supabase/supabase-js'
-import { currentSession, supabase } from './lib/cloud'
+import { currentUserId, storedUserId, supabase } from './lib/cloud'
 import { useCloudSync } from './lib/useCloudSync'
 import { Splash } from './ui/common'
 import { Login } from './features/auth/Login'
@@ -18,11 +17,12 @@ import { loadPdf } from './lib/pdfLazy'
 const SPLASH_MIN_MS = 900
 
 export default function App(){
- const [session,setSession]=useState<Session|null|undefined>(undefined)
- useEffect(()=>{currentSession().then(setSession).catch(()=>setSession(null));const {data:sub}=supabase.auth.onAuthStateChange((_e,s)=>setSession(s));return()=>sub.subscription.unsubscribe()},[])
- if(session===undefined)return <Splash/>
- if(!session)return <Login/>
- return <MainApp key={session.user.id} userId={session.user.id}/>
+ // Abre com a conta já salva no aparelho, sem esperar a internet; só volta ao login se a pessoa sair da conta.
+ const [userId,setUserId]=useState<string|null|undefined>(undefined)
+ useEffect(()=>{currentUserId().then(setUserId).catch(()=>setUserId(storedUserId()));const {data:sub}=supabase.auth.onAuthStateChange((e,s)=>{if(s)setUserId(s.user.id);else if(e==='SIGNED_OUT'||!storedUserId())setUserId(null)});return()=>sub.subscription.unsubscribe()},[])
+ if(userId===undefined)return <Splash/>
+ if(!userId)return <Login/>
+ return <MainApp key={userId} userId={userId}/>
 }
 
 function MainApp({userId}:{userId:string}){
